@@ -1,311 +1,1230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wazir | Technical & Functional Consultancy</title>
-    <style>
-        :root {
-            --bg-color: #0b0f19;
-            --surface-color: #111827;
-            --surface-glass: rgba(17, 24, 39, 0.7);
-            --border-color: rgba(212, 175, 55, 0.2);
-            --gold: #d4af37;
-            --gold-light: #f3e5ab;
-            --teal: #14b8a6;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Wazir | Strategic Management Consulting</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M15,28 L32,72 L50,42 L68,72 L85,28 L72,28 L60,56 L50,38 L40,56 L28,28 Z' fill='%23C5A059'/><polygon points='50,14 55,24 45,24' fill='%23C5A059'/><rect x='20' y='80' width='60' height='4' rx='2' fill='%23C5A059'/></svg>">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  <style>
+    /* --- DESIGN SYSTEM & PARALLAX VARS --- */
+    :root {
+      --primary-dark: #080A0B;
+      --surface-dark: #121518;
+      --card-dark: #1A1E23;
+      --accent-gold: #C5A059;
+      --accent-gold-light: #F3DCAC;
+      --accent-gold-dark: #8C6D2D;
+      --gold-glow: rgba(197, 160, 89, 0.25);
+      
+      --text-main: #1D2125;
+      --text-muted: #626D77;
+      --text-light: #F8FAFC;
+      --text-dim: #94A3B8;
 
-        /* Glassmorphism Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-        }
+      --bg-light: #FAFAFB;
+      --surface-light: #FFFFFF;
+      --border-color: rgba(226, 232, 240, 0.8);
+      --border-dark: rgba(255, 255, 255, 0.08);
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 2rem;
-        }
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: 0.05em;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            fill: var(--gold);
-        }
+    body {
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
+    a { text-decoration: none; color: inherit; cursor: pointer; }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
+    .container {
+      width: 90%;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--gold);
-        }
+    /* --- SCROLL ANIMATION & REVEAL CLASSES --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition-smooth);
+    }
 
-        .nav-cta {
-            background: linear-gradient(135deg, var(--gold), #aa8c2c);
-            color: #0b0f19;
-            padding: 0.6rem 1.25rem;
-            border-radius: 4px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-        }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        .nav-cta:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
+    /* --- PAGE ROUTING SYSTEM --- */
+    .page-view {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
 
-        /* Hero Section */
-        section {
-            padding: 7rem 2rem 5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+    .page-view.active-page {
+      display: block;
+      opacity: 1;
+    }
 
-        .hero {
-            text-align: center;
-            align-items: center;
-        }
+    /* --- BRAND LOGO --- */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: var(--transition-smooth);
+    }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
+    .brand-logo svg {
+      width: 44px;
+      height: 44px;
+      filter: drop-shadow(0px 4px 12px rgba(197, 160, 89, 0.35));
+    }
 
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .logo-text { display: flex; flex-direction: column; }
 
-        .tagline {
-            font-size: clamp(1.1rem, 2vw, 1.35rem);
-            color: var(--teal);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 1.5rem;
-        }
+    .logo-title {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: var(--primary-dark);
+      line-height: 1;
+    }
 
-        .hero p {
-            max-width: 700px;
-            color: var(--text-muted);
-            font-size: 1.15rem;
-            margin-bottom: 2.5rem;
-        }
+    .logo-subtitle {
+      font-size: 0.55rem;
+      letter-spacing: 3px;
+      color: var(--accent-gold);
+      font-weight: 700;
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
 
-        /* Contact Section & Form Styling */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            width: 100%;
-            align-items: start;
-        }
+    .footer-col .logo-title { color: #FFFFFF; }
 
-        .contact-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    /* --- BUTTONS & BADGES --- */
+    .btn-gold {
+      background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--accent-gold) 50%, var(--accent-gold-dark) 100%);
+      color: #080A0B !important;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px var(--gold-glow);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .contact-info p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
+    .btn-gold::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: 0.5s;
+    }
 
-        .form-card {
-            background: var(--surface-glass);
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
-            border-radius: 8px;
-            backdrop-filter: blur(16px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
+    .btn-gold:hover::before { left: 100%; }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(197, 160, 89, 0.45);
+    }
 
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 30px;
+      background: rgba(197, 160, 89, 0.12);
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      color: var(--accent-gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      backdrop-filter: blur(5px);
+    }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.85rem 1rem;
-            background: rgba(11, 15, 25, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            color: var(--text-main);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
+    /* --- SECTION HEADINGS & HERO PAGES --- */
+    .section-subtitle {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      color: var(--accent-gold);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.15);
-        }
+    .section-subtitle::before,
+    .section-subtitle::after {
+      content: "";
+      height: 1px;
+      width: 35px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      line-height: 1.2;
+    }
 
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--gold), #aa8c2c);
-            color: #0b0f19;
-            border: none;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
+    .page-hero {
+      position: relative;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #fff;
+      padding: 120px 0 80px 0;
+      text-align: center;
+      overflow: hidden;
+    }
 
-        .submit-btn:hover {
-            opacity: 0.95;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
-        }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at center, rgba(8,10,11,0.7) 0%, rgba(8,10,11,0.95) 100%);
+      z-index: 1;
+    }
 
-        @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
+    .page-hero .container { position: relative; z-index: 2; }
+
+    .page-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.6rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .page-hero p {
+      color: var(--text-dim);
+      font-size: 1.15rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* --- NAVIGATION (GLASSMORPHISM) --- */
+    header {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .nav-links a:not(.btn-gold)::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -6px;
+      left: 0;
+      background-color: var(--accent-gold);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-links a.active-link::after,
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-links a.active-link,
+    .nav-links a:hover { color: var(--accent-gold); }
+
+    /* --- PARALLAX HERO SECTION --- */
+    .hero-parallax {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background-color: var(--primary-dark);
+      background-image: radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 10% 80%, rgba(197, 160, 89, 0.08) 0%, transparent 50%);
+      color: #ffffff;
+      overflow: hidden;
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-serif);
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .hero-text h1 span {
+      background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-gold-light) 50%, var(--accent-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+      font-style: italic;
+    }
+
+    .hero-text p {
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    /* Floating Parallax Layers */
+    .parallax-image-wrapper {
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .parallax-img-main {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border-dark);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease-out;
+    }
+
+    .parallax-badge-card {
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      background: rgba(20, 23, 26, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--accent-gold);
+      padding: 20px 24px;
+      border-radius: 8px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* --- STATS COUNTER BAR --- */
+    .stats-bar {
+      background: var(--surface-dark);
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 50px 0;
+      color: #fff;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-dim);
+    }
+
+    /* --- 3D INTERACTIVE CARDS --- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background: var(--surface-light);
+      padding: 40px 30px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+      position: relative;
+      top: 0;
+    }
+
+    .service-card:hover {
+      top: -10px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+      border-color: var(--accent-gold);
+    }
+
+    .service-card-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(197, 160, 89, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: var(--accent-gold);
+    }
+
+    /* --- PARALLAX BREAK BANNER --- */
+    .parallax-banner {
+      position: relative;
+      background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 120px 0;
+      color: #fff;
+      text-align: center;
+    }
+
+    .parallax-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(8, 10, 11, 0.82);
+    }
+
+    .parallax-banner .container { position: relative; z-index: 2; }
+
+    /* --- FAQ ACCORDION --- */
+    .faq-wrapper { max-width: 800px; margin: 50px auto 0 auto; }
+    
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .faq-question {
+      padding: 22px 28px;
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 28px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding: 0 28px 22px 28px;
+    }
+
+    .faq-toggle-icon {
+      transition: transform 0.3s ease;
+      font-size: 1.2rem;
+      color: var(--accent-gold);
+    }
+
+    .faq-item.open .faq-toggle-icon { transform: rotate(45deg); }
+
+    /* --- ABOUT / TEAM PAGE STYLES --- */
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 100px 0; align-items: center; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+    .value-card { background: #fff; padding: 36px; border-radius: 8px; border: 1px solid var(--border-color); }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+    .team-card { background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); text-align: center; }
+    .team-card img { width: 100%; height: 300px; object-fit: cover; filter: grayscale(20%); transition: var(--transition-smooth); }
+    .team-card:hover img { filter: grayscale(0%); transform: scale(1.03); }
+    .team-card-body { padding: 24px; }
+
+    /* --- SERVICES DETAILS --- */
+    .detail-service-item {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+      padding: 80px 0; border-bottom: 1px solid var(--border-color); align-items: center;
+    }
+    .detail-service-item:nth-child(even) { direction: rtl; }
+    .detail-service-item:nth-child(even) .service-detail-text { direction: ltr; }
+
+    /* --- PROCESS TIMELINE --- */
+    .process-step {
+      display: grid; grid-template-columns: 90px 1fr; gap: 30px;
+      background: #fff; padding: 40px; border-radius: 8px; border: 1px solid var(--border-color);
+      margin-bottom: 24px; transition: var(--transition-smooth);
+    }
+    .process-step:hover { border-color: var(--accent-gold); transform: translateX(8px); }
+
+    /* --- INSIGHTS --- */
+    .insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+    .insight-card { background: #fff; border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden; }
+    .insight-card img { width: 100%; height: 220px; object-fit: cover; }
+    .insight-body { padding: 24px; }
+
+    /* --- CONTACT FORM --- */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; padding: 100px 0; }
+    .contact-form { background: #fff; padding: 44px; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 20px 40px rgba(0,0,0,0.03); }
+    .form-group { margin-bottom: 22px; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
+    .form-control {
+      width: 100%; padding: 14px 18px; border: 1px solid var(--border-color);
+      border-radius: 4px; font-family: var(--font-sans); font-size: 0.95rem; outline: none; transition: var(--transition-smooth);
+    }
+    .form-control:focus { border-color: var(--accent-gold); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15); }
+
+    /* --- FOOTER & CTA --- */
+    .cta-banner {
+      background: radial-gradient(circle at center, #181C20 0%, var(--primary-dark) 100%);
+      color: #fff; padding: 90px 0; border-top: 1px solid var(--border-dark);
+    }
+    .cta-flex { display: flex; justify-content: space-between; align-items: center; }
+    .cta-text h2 { font-family: var(--font-serif); font-size: 3rem; line-height: 1.15; }
+    .cta-text h2 span { color: var(--accent-gold); font-style: italic; }
+
+    footer {
+      background-color: var(--primary-dark); color: var(--text-dim);
+      padding: 90px 0 30px 0; font-size: 0.88rem; border-top: 1px solid var(--border-dark);
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 70px; }
+    .footer-col h5 { color: #fff; margin-bottom: 22px; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { color: var(--text-dim); transition: var(--transition-smooth); }
+    .footer-col ul li a:hover { color: var(--accent-gold); }
+    .footer-bottom { border-top: 1px solid var(--border-dark); padding-top: 30px; display: flex; justify-content: space-between; color: #525E69; font-size: 0.82rem; }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .story-grid, .detail-service-item, .contact-grid, .footer-grid, .services-grid, .stats-grid, .insights-grid { grid-template-columns: 1fr !important; }
+      .values-grid, .team-grid { grid-template-columns: 1fr; }
+      .detail-service-item:nth-child(even) { direction: ltr; }
+      .cta-flex { flex-direction: column; gap: 30px; text-align: center; }
+      .hero-parallax { min-height: auto; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-                WAZIR
-            </a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#approach">Approach</a></li>
-                <li><a href="#contact" class="active">Contact</a></li>
-            </ul>
-            <a href="#contact" class="nav-cta">Initiate Dialogue</a>
+  <!-- GLASS NAVIGATION -->
+  <header>
+    <div class="container nav-container">
+      <a onclick="navigateTo('home-page')" class="brand-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F5DB9A" />
+              <stop offset="50%" stop-color="#C5A059" />
+              <stop offset="100%" stop-color="#8C6D2D" />
+            </linearGradient>
+          </defs>
+          <path d="M15,28 L32,72 L50,42 L68,72 L85,28 L72,28 L60,56 L50,38 L40,56 L28,28 Z" fill="url(#goldGrad)"/>
+          <polygon points="50,14 56,24 44,24" fill="url(#goldGrad)"/>
+          <circle cx="50" cy="11" r="2.5" fill="url(#goldGrad)"/>
+          <rect x="20" y="80" width="60" height="4" rx="2" fill="url(#goldGrad)"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-title">YOUR WAZIR</span>
+          <span class="logo-subtitle">MANAGEMENT CONSULTING</span>
         </div>
-    </header>
+      </a>
 
-    <!-- Main Container / Contact Section -->
-    <section id="contact">
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h2>Because Strategy Beats Force.</h2>
-                <p>Connect with our technical and functional consultancy practice to architect high-performance solutions for your enterprise operations.</p>
-            </div>
-            
-            <div class="form-card">
-                <!-- Configured Contact Form routing directly to anandsumeet57@gmail.com -->
-                <form action="https://formsubmit.co/anandsumeet57@gmail.com" method="POST">
-                    
-                    <!-- Hidden configurations for FormSubmit -->
-                    <input type="hidden" name="_subject" value="New Inquiry via Wazir Consultancy Website">
-                    <input type="hidden" name="_template" value="table">
+      <ul class="nav-links">
+        <li><a onclick="navigateTo('home-page')" id="nav-home-page" class="active-link">Home</a></li>
+        <li><a onclick="navigateTo('about-page')" id="nav-about-page">About</a></li>
+        <li><a onclick="navigateTo('services-page')" id="nav-services-page">Services</a></li>
+        <li><a onclick="navigateTo('approach-page')" id="nav-approach-page">Approach</a></li>
+        <li><a onclick="navigateTo('insights-page')" id="nav-insights-page">Insights</a></li>
+        <li><a onclick="navigateTo('contact-page')" id="nav-contact-page">Contact</a></li>
+        <li><a onclick="navigateTo('contact-page')" class="btn-gold">Schedule Advisory &rarr;</a></li>
+      </ul>
+    </div>
+  </header>
 
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required placeholder="John Doe">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required placeholder="john@enterprise.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Project Scope / Message</label>
-                        <textarea id="message" name="message" required placeholder="Describe your structural or technical requirements..."></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Send Transmission</button>
-                </form>
-            </div>
+  <!-- ==================== 1. HOME PAGE ==================== -->
+  <div id="home-page" class="page-view active-page">
+    
+    <!-- PARALLAX HERO -->
+    <section class="hero-parallax">
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <div class="pill-tag">Strategic Leadership Practice</div>
+          <h1>Precision Strategy.<br><span>Mastering the Next Move.</span>Sustainable Impact.</h1>
+          <p>Your Wazir is an elite management consulting firm guiding C-suite leaders and enterprise boards through high-stakes market expansion, operating model redesign, and digital evolution.</p>
+          <div style="display: flex; gap: 16px; align-items: center;">
+            <a onclick="navigateTo('services-page')" class="btn-gold">Explore Practice Areas &rarr;</a>
+            <a onclick="navigateTo('approach-page')" style="color: var(--accent-gold); font-weight: 600; font-size: 0.9rem; padding: 12px 20px;">Our Methodology &rarr;</a>
+          </div>
         </div>
+        
+        <div class="parallax-image-wrapper reveal">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" class="parallax-img-main" id="hero-tilt-img" alt="Luxury Corporate Architecture">
+          <div class="parallax-badge-card">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <div>
+              <div style="font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; color: #fff;">Trusted Advisor</div>
+              <div style="font-size: 0.75rem; color: var(--text-dim);">GLOBAL ENTERPRISES & FAMILY OFFICES</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- ANIMATED STATS BAR -->
+    <section class="stats-bar">
+      <div class="container stats-grid">
+        <div class="reveal">
+          <div class="stat-number" data-target="150">0</div>
+          <div class="stat-label">Engagements Completed</div>
+        </div>
+        <div class="reveal">
+          <div class="stat-number" data-target="4.2">0</div>
+          <div class="stat-label">$ Value Created (Billion)</div>
+        </div>
+        <div class="reveal">
+          <div class="stat-number" data-target="98">0</div>
+          <div class="stat-label">% Executive Satisfaction</div>
+        </div>
+        <div class="reveal">
+          <div class="stat-number" data-target="12">0</div>
+          <div class="stat-label">Global Offices & Hubs</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRACTICE AREAS -->
+    <section style="padding: 100px 0;">
+      <div class="container">
+        <div class="section-subtitle">WHAT WE DO</div>
+        <h2 class="section-title">Core Advisory Capabilities</h2>
+        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto;">End-to-end management capability designed for high-stakes enterprise decisions.</p>
+        
+        <div class="services-grid">
+          <div class="service-card reveal" onclick="navigateTo('services-page')">
+            <div class="service-card-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Corporate Strategy</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Market entry, capital allocation, and long-term positioning against industry disruption.</p>
+          </div>
+
+          <div class="service-card reveal" onclick="navigateTo('services-page')">
+            <div class="service-card-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Operational Excellence</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Process redesign, lean cost optimization, and supply chain resiliency.</p>
+          </div>
+
+          <div class="service-card reveal" onclick="navigateTo('services-page')">
+            <div class="service-card-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Digital & AI Strategy</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Modernizing core IT, enterprise AI integration, and data architecture governance.</p>
+          </div>
+
+          <div class="service-card reveal" onclick="navigateTo('services-page')">
+            <div class="service-card-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Organization & Governance</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Operating model design, executive succession, and culture transformation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARALLAX BANNER -->
+    <section class="parallax-banner">
+      <div class="container reveal">
+        <div class="pill-tag">THE WAZIR PROMISE</div>
+        <h2 style="font-family: var(--font-serif); font-size: 3.2rem; max-width: 800px; margin: 0 auto 20px auto;">"In chess, the Wazir is the most versatile piece on the board. In business, we are yours."</h2>
+        <p style="color: var(--accent-gold-light); font-size: 1.1rem; font-style: italic;">Anticipating change. Navigating complexity. Delivering results.</p>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION WITH ACCORDION -->
+    <section style="padding: 100px 0; background: #F3F5F7;">
+      <div class="container">
+        <div class="section-subtitle">CLEAR ANSWERS</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        
+        <div class="faq-wrapper">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How does Your Wazir differ from traditional strategy consulting firms?
+              <span class="faq-toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Unlike legacy firms that leave you with heavy slide decks, Your Wazir works in tandem with leadership through execution. We combine high-level strategic candor with actionable operational implementation.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What industries do you specialize in?
+              <span class="faq-toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Our partners bring deep expertise across Financial Services, Technology, Industrial Manufacturing, Consumer & Retail, Energy, and Healthcare sectors across Asia, EMEA, and North America.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How long does a typical consulting engagement last?
+              <span class="faq-toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Advisory engagements typically range from 8-week diagnostic sprints to 12-month full-scale operational transformations, tailored specifically to your organization's required roadmap.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ==================== 2. ABOUT PAGE ==================== -->
+  <div id="about-page" class="page-view">
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80');">
+      <div class="container reveal">
+        <div class="pill-tag">WHO WE ARE</div>
+        <h1>Your Trusted Strategic Advisor</h1>
+        <p>Named after the pivotal strategic piece on the chessboard (The Vizier / Wazir), we guide corporate leaders through complex transformations with foresight and agility.</p>
+      </div>
+    </section>
+
+    <section class="container story-grid">
+      <div class="reveal">
+        <div class="section-subtitle" style="justify-content: flex-start;">OUR FOUNDATION</div>
+        <h2 style="font-family: var(--font-serif); font-size: 2.6rem; margin-bottom: 20px; line-height: 1.2;">Built on Rationale, Driven by Transformation</h2>
+        <p style="color: var(--text-muted); margin-bottom: 18px;">Founded with a clear purpose to bridge executive vision with execution, Your Wazir serves as a trusted sounding board to senior leaders and enterprise boards globally.</p>
+        <p style="color: var(--text-muted);">We combine deep industry knowledge, rigorous analytical frameworks, and a hands-on collaborative approach to ensure every strategic recommendation creates lasting commercial value.</p>
+      </div>
+      <div class="reveal">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);" alt="Team Meeting">
+      </div>
+    </section>
+
+    <section style="background: var(--surface-dark); color: #fff; padding: 100px 0;">
+      <div class="container">
+        <div class="section-subtitle">OUR VALUES</div>
+        <h2 class="section-title" style="color: #fff;">Principles That Drive Us</h2>
+        <div class="values-grid">
+          <div class="value-card reveal" style="background: var(--card-dark); border-color: var(--border-dark); color: #fff;">
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; color: var(--accent-gold);">01. Uncompromising Candor</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">We deliver unvarnished, data-backed insights so leaders can make courageous decisions.</p>
+          </div>
+          <div class="value-card reveal" style="background: var(--card-dark); border-color: var(--border-dark); color: #fff;">
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; color: var(--accent-gold);">02. Joint Ownership</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">We embed directly with your teams, co-creating solutions and building internal capability.</p>
+          </div>
+          <div class="value-card reveal" style="background: var(--card-dark); border-color: var(--border-dark); color: #fff;">
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; color: var(--accent-gold);">03. Measurable Value</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">We measure our success exclusively through the tangible EBITDA and cultural performance of our clients.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="padding: 100px 0;">
+      <div class="section-subtitle">LEADERSHIP</div>
+      <h2 class="section-title">Meet Our Senior Partners</h2>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80" alt="Partner">
+          <div class="team-card-body">
+            <h4 style="font-family: var(--font-serif); font-size: 1.4rem;">Arjun Sengupta</h4>
+            <p style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-top: 4px;">Managing Partner — Corporate Strategy</p>
+          </div>
+        </div>
+        <div class="team-card reveal">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Partner">
+          <div class="team-card-body">
+            <h4 style="font-family: var(--font-serif); font-size: 1.4rem;">Priya Roy</h4>
+            <p style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-top: 4px;">Partner — Digital Transformation</p>
+          </div>
+        </div>
+        <div class="team-card reveal">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80" alt="Partner">
+          <div class="team-card-body">
+            <h4 style="font-family: var(--font-serif); font-size: 1.4rem;">Vikramaditya Das</h4>
+            <p style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-top: 4px;">Partner — Operational Excellence</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== 3. SERVICES PAGE ==================== -->
+  <div id="services-page" class="page-view">
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80');">
+      <div class="container reveal">
+        <div class="pill-tag">WHAT WE OFFER</div>
+        <h1>Advisory Practices</h1>
+        <p>Comprehensive consulting capabilities tailored to solve complex corporate challenges.</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="detail-service-item reveal">
+        <div class="service-detail-text">
+          <div class="pill-tag">PRACTICE AREA 01</div>
+          <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 16px;">Strategy & Corporate Growth</h2>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">Helping leadership teams formulate growth strategies, navigate market expansion, and optimize corporate asset portfolios in dynamic environments.</p>
+          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem; line-height: 2;">
+            <li>✓ Market Entry & Feasibility Assessment</li>
+            <li>✓ Strategic Portfolio Restructuring & M&A</li>
+            <li>✓ Competitive Moat & Growth Acceleration</li>
+          </ul>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px;" alt="Strategy">
+        </div>
+      </div>
+
+      <div class="detail-service-item reveal">
+        <div class="service-detail-text">
+          <div class="pill-tag">PRACTICE AREA 02</div>
+          <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 16px;">Operational Excellence</h2>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">Optimizing global supply chains, improving operational throughput, and restructuring fixed/variable cost baselines to unlock margin upside.</p>
+          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem; line-height: 2;">
+            <li>✓ Zero-Based Cost Restructuring</li>
+            <li>✓ Supply Chain Resilience & Logistics</li>
+            <li>✓ Process Automation & Quality Management</li>
+          </ul>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px;" alt="Operations">
+        </div>
+      </div>
+
+      <div class="detail-service-item reveal">
+        <div class="service-detail-text">
+          <div class="pill-tag">PRACTICE AREA 03</div>
+          <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 16px;">Digital Transformation & AI</h2>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">Enabling modern enterprises to capture value from cloud migration, data platforms, enterprise architecture, and applied AI automation.</p>
+          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem; line-height: 2;">
+            <li>✓ Enterprise IT Modernization Architecture</li>
+            <li>✓ AI Strategy & Enterprise Integration</li>
+            <li>✓ Analytics & Data Governance Frameworks</li>
+          </ul>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px;" alt="Digital Transformation">
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== 4. APPROACH PAGE ==================== -->
+  <div id="approach-page" class="page-view">
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80');">
+      <div class="container reveal">
+        <div class="pill-tag">HOW WE WORK</div>
+        <h1>The Strategic Framework</h1>
+        <p>A rigorous 5-stage transformation model designed to ensure strategy moves seamlessly into measurable execution.</p>
+      </div>
+    </section>
+
+    <section class="container" style="padding: 100px 0;">
+      <div class="process-step reveal">
+        <div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: var(--accent-gold);">01</div>
+        <div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 8px;">Align & Baseline</h3>
+          <p style="color: var(--text-muted);">We conduct board-level interviews, audit operational metrics, and map market dynamics to establish a clear truth baseline.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal">
+        <div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: var(--accent-gold);">02</div>
+        <div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 8px;">Isolate Opportunity</h3>
+          <p style="color: var(--text-muted);">Through proprietary benchmarking, financial modeling, and scenario testing, we pinpoint structural bottlenecks and value leakage.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal">
+        <div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: var(--accent-gold);">03</div>
+        <div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 8px;">Architect Strategy</h3>
+          <p style="color: var(--text-muted);">We co-create detailed transformation blueprints, target operating models, and multi-year ROI capital roadmaps.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal">
+        <div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: var(--accent-gold);">04</div>
+        <div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 8px;">Execute & Governance</h3>
+          <p style="color: var(--text-muted);">Our senior advisors deploy alongside client leaders to drive project management, risk mitigation, and change management.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal">
+        <div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: var(--accent-gold);">05</div>
+        <div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 8px;">Sustain & Scale</h3>
+          <p style="color: var(--text-muted);">We embed permanent governance structures, train team leads, and transition control to internal leadership.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== 5. INSIGHTS PAGE ==================== -->
+  <div id="insights-page" class="page-view">
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80');">
+      <div class="container reveal">
+        <div class="pill-tag">THOUGHT LEADERSHIP</div>
+        <h1>Executive Insights</h1>
+        <p>Strategic perspectives, market briefings, and research publications for senior decision-makers.</p>
+      </div>
+    </section>
+
+    <section class="container" style="padding: 100px 0;">
+      <div class="insights-grid">
+        <div class="insight-card reveal">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Article 1">
+          <div class="insight-body">
+            <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; margin-bottom: 8px;">BRIEFING • MAY 2026</div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 12px;">5 Strategic Priorities for Building a Resilient Enterprise</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">How global CFOs and CEOs are balancing capital efficiency with aggressive transformation agendas.</p>
+            <a href="#" style="color: var(--accent-gold); font-weight: 600; font-size: 0.85rem;">Read Executive Summary &rarr;</a>
+          </div>
+        </div>
+
+        <div class="insight-card reveal">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Article 2">
+          <div class="insight-body">
+            <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; margin-bottom: 8px;">BRIEFING • APR 2026</div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 12px;">Digital Realism: Capturing True ROI from Enterprise AI</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Moving past hype to embed practical AI capabilities across core supply chains and operations.</p>
+            <a href="#" style="color: var(--accent-gold); font-weight: 600; font-size: 0.85rem;">Read Executive Summary &rarr;</a>
+          </div>
+        </div>
+
+        <div class="insight-card reveal">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Article 3">
+          <div class="insight-body">
+            <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; margin-bottom: 8px;">BRIEFING • APR 2026</div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 12px;">Navigating Market Volatility: The C-Suite Playbook</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Frameworks for rapid scenario planning and dynamic resource allocation in shifting markets.</p>
+            <a href="#" style="color: var(--accent-gold); font-weight: 600; font-size: 0.85rem;">Read Executive Summary &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== 6. CONTACT PAGE ==================== -->
+  <div id="contact-page" class="page-view">
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1600&q=80');">
+      <div class="container reveal">
+        <div class="pill-tag">GET IN TOUCH</div>
+        <h1>Initiate a Dialogue</h1>
+        <p>Connect directly with our senior management partners to discuss your organization's priorities.</p>
+      </div>
+    </section>
+
+    <section class="container contact-grid">
+      <div class="reveal">
+        <div class="section-subtitle" style="justify-content: flex-start;">DIRECT ADVISORY</div>
+        <h2 style="font-family: var(--font-serif); font-size: 2.6rem; margin-bottom: 20px;">Let's Discuss What's Next</h2>
+        <p style="color: var(--text-muted); margin-bottom: 40px;">Whether you require an exploratory board presentation or a formal engagement proposal, our team is ready to respond.</p>
+        
+        <div style="margin-bottom: 24px;">
+          <h4 style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 700; letter-spacing: 1.5px;">HEADQUARTERS</h4>
+          <p style="font-size: 1.1rem; font-weight: 600;">Kolkata Advisory Hub | India</p>
+        </div>
+        <div style="margin-bottom: 24px;">
+          <h4 style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 700; letter-spacing: 1.5px;">GENERAL INQUIRIES</h4>
+          <p style="font-size: 1.1rem; font-weight: 600;">hello@yourwazir.com</p>
+        </div>
+        <div>
+          <h4 style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 700; letter-spacing: 1.5px;">DIRECT TELEPHONE</h4>
+          <p style="font-size: 1.1rem; font-weight: 600;">+91 98765 43210</p>
+        </div>
+      </div>
+
+      <!-- FORM CONFIGURED WITH FORMSUBMIT (REPLACE 'hello@yourwazir.com' WITH YOUR ACTUAL EMAIL) -->
+      <div class="contact-form reveal">
+        <!-- <form action="https://formsubmit.co/anandsumeet57@gmail.com" method="POST"> -->
+          <!-- FormSubmit Configuration Inputs -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Confidential Inquiry - Your Wazir">
+          
+          <div class="form-group">
+            <label>FULL NAME</label>
+            <input type="text" name="name" class="form-control" placeholder="e.g. Rahul Sharma" required>
+          </div>
+          <div class="form-group">
+            <label>CORPORATE EMAIL</label>
+            <input type="email" name="email" class="form-control" placeholder="r.sharma@company.com" required>
+          </div>
+          <div class="form-group">
+            <label>ORGANIZATION / TITLE</label>
+            <input type="text" name="title" class="form-control" placeholder="e.g. Chief Financial Officer">
+          </div>
+          <div class="form-group">
+            <label>PRACTICE AREA OF INTEREST</label>
+            <select name="practice_area" class="form-control">
+              <option>Strategy & Corporate Growth</option>
+              <option>Operational Excellence</option>
+              <option>Digital Transformation & AI</option>
+              <option>Organization & Governance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>EXECUTIVE OVERVIEW / MESSAGE</label>
+            <textarea name="message" class="form-control" rows="4" placeholder="Briefly describe your objectives..."></textarea>
+          </div>
+          <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;">Submit Confidential Inquiry &rarr;</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- CALL TO ACTION BANNER -->
+  <section class="cta-banner">
+    <div class="container cta-flex reveal">
+      <div class="cta-text">
+        <h2>Ready for Strategic Transformation?<br><span>What's Your Next Strategic Move?</span></h2>
+      </div>
+      <a onclick="navigateTo('contact-page')" class="btn-gold">Schedule Partner Consultation &rarr;</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a onclick="navigateTo('home-page')" class="brand-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+              <defs>
+                <linearGradient id="goldGradF" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#F5DB9A" />
+                  <stop offset="50%" stop-color="#C5A059" />
+                  <stop offset="100%" stop-color="#8C6D2D" />
+                </linearGradient>
+              </defs>
+              <path d="M15,28 L32,72 L50,42 L68,72 L85,28 L72,28 L60,56 L50,38 L40,56 L28,28 Z" fill="url(#goldGradF)"/>
+              <polygon points="50,14 56,24 44,24" fill="url(#goldGradF)"/>
+              <circle cx="50" cy="11" r="2.5" fill="url(#goldGradF)"/>
+              <rect x="20" y="80" width="60" height="4" rx="2" fill="url(#goldGradF)"/>
+            </svg>
+            <div class="logo-text">
+              <span class="logo-title">YOUR WAZIR</span>
+              <span class="logo-subtitle">MANAGEMENT CONSULTING</span>
+            </div>
+          </a>
+          <p style="margin-top: 20px; color: var(--text-dim); font-size: 0.85rem; max-width: 260px;">
+            Strategic Thinking. Meaningful Transformation. Sustainable Impact.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h5>COMPANY</h5>
+          <ul>
+            <li><a onclick="navigateTo('about-page')">About Us</a></li>
+            <li><a onclick="navigateTo('approach-page')">Our Approach</a></li>
+            <li><a onclick="navigateTo('contact-page')">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>SERVICES</h5>
+          <ul>
+            <li><a onclick="navigateTo('services-page')">Strategy & Growth</a></li>
+            <li><a onclick="navigateTo('services-page')">Operational Excellence</a></li>
+            <li><a onclick="navigateTo('services-page')">Digital & AI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>INSIGHTS</h5>
+          <ul>
+            <li><a onclick="navigateTo('insights-page')">Briefings</a></li>
+            <li><a onclick="navigateTo('insights-page')">Research</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>CONTACT</h5>
+          <ul style="color: var(--text-dim);">
+            <li>hello@yourwazir.com</li>
+            <li>+91 98765 43210</li>
+            <li>Kolkata, India</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Your Wazir. All Rights Reserved.</div>
+        <div>
+          <a href="#" style="margin-right: 20px; color: inherit;">Privacy Policy</a>
+          <a href="#" style="color: inherit;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE JAVASCRIPT: ROUTING, PARALLAX, FAQ & COUNTERS -->
+  <script>
+    // 1. NAVIGATION & PAGE ROUTING
+    function navigateTo(pageId) {
+      const pages = document.querySelectorAll('.page-view');
+      pages.forEach(page => page.classList.remove('active-page'));
+
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => link.classList.remove('active-link'));
+
+      const targetPage = document.getElementById(pageId);
+      if (targetPage) {
+        targetPage.classList.add('active-page');
+      }
+
+      const activeNav = document.getElementById('nav-' + pageId);
+      if (activeNav) {
+        activeNav.classList.add('active-link');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // Trigger animations on page switch
+      setTimeout(handleScrollAnimations, 100);
+    }
+
+    // 2. SCROLL REVEAL ANIMATIONS
+    function handleScrollAnimations() {
+      const reveals = document.querySelectorAll('.page-view.active-page .reveal');
+      const windowHeight = window.innerHeight;
+      
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 80) {
+          element.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScrollAnimations);
+    window.addEventListener('DOMContentLoaded', handleScrollAnimations);
+
+    // 3. FAQ ACCORDION TOGGLE
+    function toggleFaq(element) {
+      const item = element.parentElement;
+      item.classList.toggle('open');
+    }
+
+    // 4. MOUSE PARALLAX TILT EFFECT ON HERO
+    const heroImage = document.getElementById('hero-tilt-img');
+    if (heroImage) {
+      document.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth / 2 - e.pageX) / 45;
+        const y = (window.innerHeight / 2 - e.pageY) / 45;
+        heroImage.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+      });
+    }
+
+    // 5. ANIMATED STAT COUNTERS
+    let countersTriggered = false;
+    function triggerCounters() {
+      if (countersTriggered) return;
+      const statNumbers = document.querySelectorAll('.stat-number');
+      const statsSection = document.querySelector('.stats-bar');
+      
+      if (statsSection) {
+        const rect = statsSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          countersTriggered = true;
+          statNumbers.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const speed = 200;
+            const updateCount = () => {
+              const count = +counter.innerText.replace('$', '');
+              const inc = target / speed;
+              if (count < target) {
+                counter.innerText = (counter.getAttribute('data-target').includes('.') ? (count + inc).toFixed(1) : Math.ceil(count + inc));
+                setTimeout(updateCount, 15);
+              } else {
+                counter.innerText = target + (counter.getAttribute('data-target').includes('.') ? 'B+' : '+');
+              }
+            };
+            updateCount();
+          });
+        }
+      }
+    }
+
+    window.addEventListener('scroll', triggerCounters);
+  </script>
 </body>
 </html>
