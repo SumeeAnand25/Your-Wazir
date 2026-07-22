@@ -71,18 +71,6 @@
       transform: translateY(0);
     }
 
-    /* --- PAGE ROUTING SYSTEM --- */
-    .page-view {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .page-view.active-page {
-      display: block;
-      opacity: 1;
-    }
-
     /* --- BRAND LOGO --- */
     .brand-logo {
       display: flex;
@@ -579,7 +567,7 @@
   <!-- GLASS NAVIGATION -->
   <header>
     <div class="container nav-container">
-      <a onclick="navigateTo('home-page')" class="brand-logo">
+      <a href="#home" class="brand-logo">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
           <defs>
             <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -600,164 +588,120 @@
       </a>
 
       <ul class="nav-links">
-        <li><a onclick="navigateTo('home-page')" id="nav-home-page" class="active-link">Home</a></li>
-        <li><a onclick="navigateTo('about-page')" id="nav-about-page">About</a></li>
-        <li><a onclick="navigateTo('services-page')" id="nav-services-page">Services</a></li>
-        <li><a onclick="navigateTo('approach-page')" id="nav-approach-page">Approach</a></li>
-        <li><a onclick="navigateTo('insights-page')" id="nav-insights-page">Insights</a></li>
-        <li><a onclick="navigateTo('contact-page')" id="nav-contact-page">Contact</a></li>
-        <li><a onclick="navigateTo('contact-page')" class="btn-gold">Schedule Advisory &rarr;</a></li>
+        <li><a href="#home" class="nav-link active-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#approach" class="nav-link">Approach</a></li>
+        <li><a href="#insights" class="nav-link">Insights</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#contact" class="btn-gold">Schedule Advisory &rarr;</a></li>
       </ul>
     </div>
   </header>
 
-  <!-- ==================== 1. HOME PAGE ==================== -->
-  <div id="home-page" class="page-view active-page">
-    
-    <!-- PARALLAX HERO -->
-    <section class="hero-parallax">
-      <div class="container hero-grid">
-        <div class="hero-text reveal">
-          <div class="pill-tag">Strategic Leadership Practice</div>
-          <h1>Precision Strategy.<br><span>Mastering the Next Move.</span>Sustainable Impact.</h1>
-          <p>Your Wazir is an elite management consulting firm guiding C-suite leaders and enterprise boards through high-stakes market expansion, operating model redesign, and digital evolution.</p>
-          <div style="display: flex; gap: 16px; align-items: center;">
-            <a onclick="navigateTo('services-page')" class="btn-gold">Explore Practice Areas &rarr;</a>
-            <a onclick="navigateTo('approach-page')" style="color: var(--accent-gold); font-weight: 600; font-size: 0.9rem; padding: 12px 20px;">Our Methodology &rarr;</a>
-          </div>
+  <!-- ==================== 1. HOME SECTION ==================== -->
+  <section id="home" class="hero-parallax">
+    <div class="container hero-grid">
+      <div class="hero-text reveal">
+        <div class="pill-tag">Strategic Leadership Practice</div>
+        <h1>Precision Strategy.<br><span>Mastering the Next Move.</span>Sustainable Impact.</h1>
+        <p>Your Wazir is an elite management consulting firm guiding C-suite leaders and enterprise boards through high-stakes market expansion, operating model redesign, and digital evolution.</p>
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <a href="#services" class="btn-gold">Explore Practice Areas &rarr;</a>
+          <a href="#approach" style="color: var(--accent-gold); font-weight: 600; font-size: 0.9rem; padding: 12px 20px;">Our Methodology &rarr;</a>
         </div>
-        
-        <div class="parallax-image-wrapper reveal">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" class="parallax-img-main" id="hero-tilt-img" alt="Luxury Corporate Architecture">
-          <div class="parallax-badge-card">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            <div>
-              <div style="font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; color: #fff;">Trusted Advisor</div>
-              <div style="font-size: 0.75rem; color: var(--text-dim);">GLOBAL ENTERPRISES & FAMILY OFFICES</div>
-            </div>
+      </div>
+      
+      <div class="parallax-image-wrapper reveal">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" class="parallax-img-main" id="hero-tilt-img" alt="Luxury Corporate Architecture">
+        <div class="parallax-badge-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <div>
+            <div style="font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; color: #fff;">Trusted Advisor</div>
+            <div style="font-size: 0.75rem; color: var(--text-dim);">GLOBAL ENTERPRISES & FAMILY OFFICES</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ANIMATED STATS BAR -->
-    <section class="stats-bar">
-      <div class="container stats-grid">
-        <div class="reveal">
-          <div class="stat-number" data-target="150">0</div>
-          <div class="stat-label">Engagements Completed</div>
+  <!-- ANIMATED STATS BAR -->
+  <section class="stats-bar">
+    <div class="container stats-grid">
+      <div class="reveal">
+        <div class="stat-number" data-target="150">0</div>
+        <div class="stat-label">Engagements Completed</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-number" data-target="4.2">0</div>
+        <div class="stat-label">$ Value Created (Billion)</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-number" data-target="98">0</div>
+        <div class="stat-label">% Executive Satisfaction</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-number" data-target="12">0</div>
+        <div class="stat-label">Global Offices & Hubs</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICE AREAS PREVIEW -->
+  <section style="padding: 100px 0;">
+    <div class="container">
+      <div class="section-subtitle">WHAT WE DO</div>
+      <h2 class="section-title">Core Advisory Capabilities</h2>
+      <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto;">End-to-end management capability designed for high-stakes enterprise decisions.</p>
+      
+      <div class="services-grid">
+        <div class="service-card reveal" onclick="location.href='#services'">
+          <div class="service-card-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          </div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Corporate Strategy</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Market entry, capital allocation, and long-term positioning against industry disruption.</p>
         </div>
-        <div class="reveal">
-          <div class="stat-number" data-target="4.2">0</div>
-          <div class="stat-label">$ Value Created (Billion)</div>
+
+        <div class="service-card reveal" onclick="location.href='#services'">
+          <div class="service-card-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Operational Excellence</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Process redesign, lean cost optimization, and supply chain resiliency.</p>
         </div>
-        <div class="reveal">
-          <div class="stat-number" data-target="98">0</div>
-          <div class="stat-label">% Executive Satisfaction</div>
+
+        <div class="service-card reveal" onclick="location.href='#services'">
+          <div class="service-card-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Digital & AI Strategy</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Modernizing core IT, enterprise AI integration, and data architecture governance.</p>
         </div>
-        <div class="reveal">
-          <div class="stat-number" data-target="12">0</div>
-          <div class="stat-label">Global Offices & Hubs</div>
+
+        <div class="service-card reveal" onclick="location.href='#services'">
+          <div class="service-card-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Organization & Governance</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Operating model design, executive succession, and culture transformation.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- PRACTICE AREAS -->
-    <section style="padding: 100px 0;">
-      <div class="container">
-        <div class="section-subtitle">WHAT WE DO</div>
-        <h2 class="section-title">Core Advisory Capabilities</h2>
-        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto;">End-to-end management capability designed for high-stakes enterprise decisions.</p>
-        
-        <div class="services-grid">
-          <div class="service-card reveal" onclick="navigateTo('services-page')">
-            <div class="service-card-icon">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-            </div>
-            <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Corporate Strategy</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Market entry, capital allocation, and long-term positioning against industry disruption.</p>
-          </div>
+  <!-- PARALLAX BANNER -->
+  <section class="parallax-banner">
+    <div class="container reveal">
+      <div class="pill-tag">THE WAZIR PROMISE</div>
+      <h2 style="font-family: var(--font-serif); font-size: 3.2rem; max-width: 800px; margin: 0 auto 20px auto;">"In chess, the Wazir is the most versatile piece on the board. In business, we are yours."</h2>
+      <p style="color: var(--accent-gold-light); font-size: 1.1rem; font-style: italic;">Anticipating change. Navigating complexity. Delivering results.</p>
+    </div>
+  </section>
 
-          <div class="service-card reveal" onclick="navigateTo('services-page')">
-            <div class="service-card-icon">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Operational Excellence</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Process redesign, lean cost optimization, and supply chain resiliency.</p>
-          </div>
 
-          <div class="service-card reveal" onclick="navigateTo('services-page')">
-            <div class="service-card-icon">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Digital & AI Strategy</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Modernizing core IT, enterprise AI integration, and data architecture governance.</p>
-          </div>
-
-          <div class="service-card reveal" onclick="navigateTo('services-page')">
-            <div class="service-card-icon">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Organization & Governance</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Operating model design, executive succession, and culture transformation.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PARALLAX BANNER -->
-    <section class="parallax-banner">
-      <div class="container reveal">
-        <div class="pill-tag">THE WAZIR PROMISE</div>
-        <h2 style="font-family: var(--font-serif); font-size: 3.2rem; max-width: 800px; margin: 0 auto 20px auto;">"In chess, the Wazir is the most versatile piece on the board. In business, we are yours."</h2>
-        <p style="color: var(--accent-gold-light); font-size: 1.1rem; font-style: italic;">Anticipating change. Navigating complexity. Delivering results.</p>
-      </div>
-    </section>
-
-    <!-- FAQ SECTION WITH ACCORDION -->
-    <section style="padding: 100px 0; background: #F3F5F7;">
-      <div class="container">
-        <div class="section-subtitle">CLEAR ANSWERS</div>
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        
-        <div class="faq-wrapper">
-          <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">
-              How does Your Wazir differ from traditional strategy consulting firms?
-              <span class="faq-toggle-icon">+</span>
-            </div>
-            <div class="faq-answer">
-              Unlike legacy firms that leave you with heavy slide decks, Your Wazir works in tandem with leadership through execution. We combine high-level strategic candor with actionable operational implementation.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">
-              What industries do you specialize in?
-              <span class="faq-toggle-icon">+</span>
-            </div>
-            <div class="faq-answer">
-              Our partners bring deep expertise across Financial Services, Technology, Industrial Manufacturing, Consumer & Retail, Energy, and Healthcare sectors across Asia, EMEA, and North America.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">
-              How long does a typical consulting engagement last?
-              <span class="faq-toggle-icon">+</span>
-            </div>
-            <div class="faq-answer">
-              Advisory engagements typically range from 8-week diagnostic sprints to 12-month full-scale operational transformations, tailored specifically to your organization's required roadmap.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </div>
-
-  <!-- ==================== 2. ABOUT PAGE ==================== -->
-  <div id="about-page" class="page-view">
+  <!-- ==================== 2. ABOUT SECTION ==================== -->
+  <div id="about">
     <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80');">
       <div class="container reveal">
         <div class="pill-tag">WHO WE ARE</div>
@@ -814,417 +758,449 @@
           <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Partner">
           <div class="team-card-body">
             <h4 style="font-family: var(--font-serif); font-size: 1.4rem;">Priya Roy</h4>
-            <p style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-top: 4px;">Partner — Digital Transformation</p>
+            <p style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-top: 4px;">Senior Partner — Digital & Operations</p>
           </div>
         </div>
         <div class="team-card reveal">
           <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80" alt="Partner">
           <div class="team-card-body">
-            <h4 style="font-family: var(--font-serif); font-size: 1.4rem;">Vikramaditya Das</h4>
-            <p style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-top: 4px;">Partner — Operational Excellence</p>
+            <h4 style="font-family: var(--font-serif); font-size: 1.4rem;">Marcus Vance</h4>
+            <p style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-top: 4px;">Partner — M&A and Restructuring</p>
           </div>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- ==================== 3. SERVICES PAGE ==================== -->
-  <div id="services-page" class="page-view">
+
+  <!-- ==================== 3. SERVICES SECTION ==================== -->
+  <div id="services">
     <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80');">
       <div class="container reveal">
         <div class="pill-tag">WHAT WE OFFER</div>
-        <h1>Advisory Practices</h1>
-        <p>Comprehensive consulting capabilities tailored to solve complex corporate challenges.</p>
+        <h1>Comprehensive Advisory Practice</h1>
+        <p>Rigorous analysis paired with transformative execution frameworks tailored to complex enterprise challenges.</p>
       </div>
     </section>
 
-    <section class="container">
+    <div class="container">
       <div class="detail-service-item reveal">
         <div class="service-detail-text">
-          <div class="pill-tag">PRACTICE AREA 01</div>
-          <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 16px;">Strategy & Corporate Growth</h2>
-          <p style="color: var(--text-muted); margin-bottom: 20px;">Helping leadership teams formulate growth strategies, navigate market expansion, and optimize corporate asset portfolios in dynamic environments.</p>
-          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem; line-height: 2;">
-            <li>✓ Market Entry & Feasibility Assessment</li>
-            <li>✓ Strategic Portfolio Restructuring & M&A</li>
-            <li>✓ Competitive Moat & Growth Acceleration</li>
+          <div class="pill-tag">PRACTICE 01</div>
+          <h2 style="font-family: var(--font-serif); font-size: 2.4rem; margin-bottom: 16px;">Corporate & Growth Strategy</h2>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">We help market leaders navigate uncertainty, identify high-yield adjacencies, and architect robust long-term growth blueprints that outpace industry shifts.</p>
+          <ul style="list-style: none; color: var(--text-main); font-weight: 500; display: flex; flex-direction: column; gap: 10px;">
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> Market Entry & Expansion Roadmaps</li>
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> Portfolio Optimization & Capital Allocation</li>
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> M&A Commercial Due Diligence & Synergy Integration</li>
           </ul>
         </div>
         <div>
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px;" alt="Strategy">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px;" alt="Strategy">
         </div>
       </div>
 
       <div class="detail-service-item reveal">
         <div class="service-detail-text">
-          <div class="pill-tag">PRACTICE AREA 02</div>
-          <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 16px;">Operational Excellence</h2>
-          <p style="color: var(--text-muted); margin-bottom: 20px;">Optimizing global supply chains, improving operational throughput, and restructuring fixed/variable cost baselines to unlock margin upside.</p>
-          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem; line-height: 2;">
-            <li>✓ Zero-Based Cost Restructuring</li>
-            <li>✓ Supply Chain Resilience & Logistics</li>
-            <li>✓ Process Automation & Quality Management</li>
+          <div class="pill-tag">PRACTICE 02</div>
+          <h2 style="font-family: var(--font-serif); font-size: 2.4rem; margin-bottom: 16px;">Operational Excellence</h2>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">Eliminating friction across your organizational value chain to streamline cost structures, elevate service quality, and maximize throughput efficiency.</p>
+          <ul style="list-style: none; color: var(--text-main); font-weight: 500; display: flex; flex-direction: column; gap: 10px;">
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> End-to-End Supply Chain Resiliency</li>
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> Structural Cost Rationalization</li>
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> Lean Process Engineering & Workflow Automation</li>
           </ul>
         </div>
         <div>
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px;" alt="Operations">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px;" alt="Operations">
         </div>
       </div>
 
       <div class="detail-service-item reveal">
         <div class="service-detail-text">
-          <div class="pill-tag">PRACTICE AREA 03</div>
-          <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 16px;">Digital Transformation & AI</h2>
-          <p style="color: var(--text-muted); margin-bottom: 20px;">Enabling modern enterprises to capture value from cloud migration, data platforms, enterprise architecture, and applied AI automation.</p>
-          <ul style="list-style: none; color: var(--text-main); font-size: 0.95rem; line-height: 2;">
-            <li>✓ Enterprise IT Modernization Architecture</li>
-            <li>✓ AI Strategy & Enterprise Integration</li>
-            <li>✓ Analytics & Data Governance Frameworks</li>
+          <div class="pill-tag">PRACTICE 03</div>
+          <h2 style="font-family: var(--font-serif); font-size: 2.4rem; margin-bottom: 16px;">Digital & AI Transformation</h2>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">Bridging legacy systems with next-generation artificial intelligence and cloud architectures to unlock secure, scalable data-driven enterprise capabilities.</p>
+          <ul style="list-style: none; color: var(--text-main); font-weight: 500; display: flex; flex-direction: column; gap: 10px;">
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> Enterprise AI Integration Roadmaps</li>
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> IT Modernization & Architecture Governance</li>
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> Cyber Risk & Data Governance Strategy</li>
           </ul>
         </div>
         <div>
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px;" alt="Digital Transformation">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px;" alt="Digital">
         </div>
       </div>
-    </section>
+    </div>
   </div>
 
-  <!-- ==================== 4. APPROACH PAGE ==================== -->
-  <div id="approach-page" class="page-view">
-    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80');">
+
+  <!-- ==================== 4. APPROACH SECTION ==================== -->
+  <div id="approach">
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1508873696983-2df5c920ac3c?auto=format&fit=crop&w=1600&q=80');">
       <div class="container reveal">
         <div class="pill-tag">HOW WE WORK</div>
-        <h1>The Strategic Framework</h1>
-        <p>A rigorous 5-stage transformation model designed to ensure strategy moves seamlessly into measurable execution.</p>
+        <h1>Our Strategic Methodology</h1>
+        <p>A rigorous, battle-tested framework designed to move from diagnosis to sustainable value creation with precision.</p>
       </div>
     </section>
 
     <section class="container" style="padding: 100px 0;">
-      <div class="process-step reveal">
-        <div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: var(--accent-gold);">01</div>
-        <div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 8px;">Align & Baseline</h3>
-          <p style="color: var(--text-muted);">We conduct board-level interviews, audit operational metrics, and map market dynamics to establish a clear truth baseline.</p>
+      <div class="section-subtitle">FOUR-STAGE FRAMEWORK</div>
+      <h2 class="section-title">The Wazir Engagement Lifecycle</h2>
+      
+      <div style="max-width: 900px; margin: 40px auto 0 auto;">
+        <div class="process-step reveal">
+          <div style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 700; color: var(--accent-gold); line-height: 1;">01</div>
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 8px;">Diagnostic Immersion (Weeks 1–2)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Deep data extraction, leadership interviews, and operational audits to pinpoint structural bottlenecks and high-leverage opportunities.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="process-step reveal">
-        <div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: var(--accent-gold);">02</div>
-        <div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 8px;">Isolate Opportunity</h3>
-          <p style="color: var(--text-muted);">Through proprietary benchmarking, financial modeling, and scenario testing, we pinpoint structural bottlenecks and value leakage.</p>
+        <div class="process-step reveal">
+          <div style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 700; color: var(--accent-gold); line-height: 1;">02</div>
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 8px;">Hypothesis & Blueprinting (Weeks 3–4)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Formulating unvarnished strategic models and collaborative roadmaps designed for executive sign-off and risk mitigation.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="process-step reveal">
-        <div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: var(--accent-gold);">03</div>
-        <div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 8px;">Architect Strategy</h3>
-          <p style="color: var(--text-muted);">We co-create detailed transformation blueprints, target operating models, and multi-year ROI capital roadmaps.</p>
+        <div class="process-step reveal">
+          <div style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 700; color: var(--accent-gold); line-height: 1;">03</div>
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 8px;">Collaborative Execution (Weeks 5–12+)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Embedding directly within your teams to guide implementation, build internal capability, and overcome cultural friction.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="process-step reveal">
-        <div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: var(--accent-gold);">04</div>
-        <div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 8px;">Execute & Governance</h3>
-          <p style="color: var(--text-muted);">Our senior advisors deploy alongside client leaders to drive project management, risk mitigation, and change management.</p>
-        </div>
-      </div>
-
-      <div class="process-step reveal">
-        <div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; color: var(--accent-gold);">05</div>
-        <div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 8px;">Sustain & Scale</h3>
-          <p style="color: var(--text-muted);">We embed permanent governance structures, train team leads, and transition control to internal leadership.</p>
+        <div class="process-step reveal">
+          <div style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 700; color: var(--accent-gold); line-height: 1;">04</div>
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 8px;">Institutionalization & Handover</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Establishing KPI dashboards and governance frameworks to ensure long-term sustainability long after our active engagement concludes.</p>
+          </div>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- ==================== 5. INSIGHTS PAGE ==================== -->
-  <div id="insights-page" class="page-view">
-    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80');">
+
+  <!-- ==================== 5. INSIGHTS SECTION ==================== -->
+  <div id="insights">
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80');">
       <div class="container reveal">
-        <div class="pill-tag">THOUGHT LEADERSHIP</div>
-        <h1>Executive Insights</h1>
-        <p>Strategic perspectives, market briefings, and research publications for senior decision-makers.</p>
+        <div class="pill-tag">EXECUTIVE THOUGHT LEADERSHIP</div>
+        <h1>Perspectives on Strategy & Scale</h1>
+        <p>Unvarnished insights from our senior partners on emerging enterprise trends, governance, and market transformation.</p>
       </div>
     </section>
 
     <section class="container" style="padding: 100px 0;">
+      <div class="section-subtitle">LATEST PUBLICATIONS</div>
+      <h2 class="section-title">Strategic Perspectives</h2>
+      
       <div class="insights-grid">
         <div class="insight-card reveal">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Article 1">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Article">
           <div class="insight-body">
-            <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; margin-bottom: 8px;">BRIEFING • MAY 2026</div>
-            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 12px;">5 Strategic Priorities for Building a Resilient Enterprise</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">How global CFOs and CEOs are balancing capital efficiency with aggressive transformation agendas.</p>
-            <a href="#" style="color: var(--accent-gold); font-weight: 600; font-size: 0.85rem;">Read Executive Summary &rarr;</a>
+            <span style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Corporate Strategy &bull; March 2026</span>
+            <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin: 10px 0 12px 0; line-height: 1.3;">Navigating Volatility: Why Agility Beats Rigid Long-Range Planning</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">How modern executive boards are restructuring operating models to thrive amidst rapid macroeconomic shifts.</p>
           </div>
         </div>
 
         <div class="insight-card reveal">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Article 2">
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Article">
           <div class="insight-body">
-            <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; margin-bottom: 8px;">BRIEFING • APR 2026</div>
-            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 12px;">Digital Realism: Capturing True ROI from Enterprise AI</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Moving past hype to embed practical AI capabilities across core supply chains and operations.</p>
-            <a href="#" style="color: var(--accent-gold); font-weight: 600; font-size: 0.85rem;">Read Executive Summary &rarr;</a>
+            <span style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Digital Transformation &bull; February 2026</span>
+            <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin: 10px 0 12px 0; line-height: 1.3;">The AI Integration Paradox: Moving from Proof-of-Concept to EBITDA Impact</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">A practical framework for enterprise leaders looking to derive tangible commercial returns from generative AI initiatives.</p>
           </div>
         </div>
 
         <div class="insight-card reveal">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Article 3">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" alt="Article">
           <div class="insight-body">
-            <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; margin-bottom: 8px;">BRIEFING • APR 2026</div>
-            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 12px;">Navigating Market Volatility: The C-Suite Playbook</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Frameworks for rapid scenario planning and dynamic resource allocation in shifting markets.</p>
-            <a href="#" style="color: var(--accent-gold); font-weight: 600; font-size: 0.85rem;">Read Executive Summary &rarr;</a>
+            <span style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Governance &bull; January 2026</span>
+            <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin: 10px 0 12px 0; line-height: 1.3;">Boardroom Candor: Cultivating Healthy Dissension for Superior Decisions</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Why consensus can kill enterprise growth and how chairpersons can establish psychological safety for rigorous debate.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION EMBEDDED -->
+    <section style="padding: 80px 0; background: #F3F5F7;">
+      <div class="container">
+        <div class="section-subtitle">CLEAR ANSWERS</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        
+        <div class="faq-wrapper">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How does Your Wazir differ from traditional strategy consulting firms?
+              <span class="faq-toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Unlike legacy firms that leave you with heavy slide decks, Your Wazir works in tandem with leadership through execution. We combine high-level strategic candor with actionable operational implementation.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What industries do you specialize in?
+              <span class="faq-toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Our partners bring deep expertise across Financial Services, Technology, Industrial Manufacturing, Consumer & Retail, Energy, and Healthcare sectors across Asia, EMEA, and North America.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How long does a typical consulting engagement last?
+              <span class="faq-toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Advisory engagements typically range from 8-week diagnostic sprints to 12-month full-scale operational transformations, tailored specifically to your organization's required roadmap.
+            </div>
           </div>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- ==================== 6. CONTACT PAGE ==================== -->
-  <div id="contact-page" class="page-view">
+
+  <!-- ==================== 6. CONTACT SECTION ==================== -->
+  <div id="contact">
     <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1600&q=80');">
       <div class="container reveal">
-        <div class="pill-tag">GET IN TOUCH</div>
-        <h1>Initiate a Dialogue</h1>
-        <p>Connect directly with our senior management partners to discuss your organization's priorities.</p>
+        <div class="pill-tag">INITIATE DIALOGUE</div>
+        <h1>Connect With Our Practice</h1>
+        <p>Confidential initial consultations for C-suite leaders, managing directors, and enterprise board members.</p>
       </div>
     </section>
 
-    <section class="container contact-grid">
+    <div class="container contact-grid">
       <div class="reveal">
-        <div class="section-subtitle" style="justify-content: flex-start;">DIRECT ADVISORY</div>
-        <h2 style="font-family: var(--font-serif); font-size: 2.6rem; margin-bottom: 20px;">Let's Discuss What's Next</h2>
-        <p style="color: var(--text-muted); margin-bottom: 40px;">Whether you require an exploratory board presentation or a formal engagement proposal, our team is ready to respond.</p>
+        <div class="section-subtitle" style="justify-content: flex-start;">START A CONVERSATION</div>
+        <h2 style="font-family: var(--font-serif); font-size: 2.6rem; margin-bottom: 20px; line-height: 1.2;">Let's Discuss Your Next Strategic Move</h2>
+        <p style="color: var(--text-muted); margin-bottom: 24px;">Whether you are facing market expansion hurdles, operating model inefficiencies, or digital scaling bottlenecks, our senior partners are ready to assist.</p>
         
-        <div style="margin-bottom: 24px;">
-          <h4 style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 700; letter-spacing: 1.5px;">HEADQUARTERS</h4>
-          <p style="font-size: 1.1rem; font-weight: 600;">Kolkata Advisory Hub | India</p>
-        </div>
-        <div style="margin-bottom: 24px;">
-          <h4 style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 700; letter-spacing: 1.5px;">GENERAL INQUIRIES</h4>
-          <p style="font-size: 1.1rem; font-weight: 600;">hello@yourwazir.com</p>
-        </div>
-        <div>
-          <h4 style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 700; letter-spacing: 1.5px;">DIRECT TELEPHONE</h4>
-          <p style="font-size: 1.1rem; font-weight: 600;">+91 98765 43210</p>
+        <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 30px;">
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="width: 40px; height: 40px; background: rgba(197,160,89,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--accent-gold); flex-shrink: 0;">📍</div>
+            <div>
+              <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 2px;">Global Headquarters</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Level 24, Tower Alpha, Financial District, Global Hub</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="width: 40px; height: 40px; background: rgba(197,160,89,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--accent-gold); flex-shrink: 0;">✉️</div>
+            <div>
+              <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 2px;">Direct Transmission</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">advisory@yourwazir.com</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- FORM CONFIGURED WITH FORMSUBMIT (REPLACE 'hello@yourwazir.com' WITH YOUR ACTUAL EMAIL) -->
       <div class="contact-form reveal">
+        <!-- Form configured with FormSubmit routing to anandsumeet57@gmail.com -->
         <form action="https://formsubmit.co/anandsumeet57@gmail.com" method="POST">
-          <!-- FormSubmit Configuration Inputs -->
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="New Confidential Inquiry - Your Wazir">
-          
+          <input type="hidden" name="_subject" value="New Executive Inquiry via Your Wazir Website">
+          <input type="hidden" name="_template" value="table">
+
           <div class="form-group">
             <label>FULL NAME</label>
-            <input type="text" name="name" class="form-control" placeholder="e.g. Rahul Sharma" required>
+            <input type="text" name="name" class="form-control" required placeholder="Lord / Director / Executive Name">
           </div>
           <div class="form-group">
             <label>CORPORATE EMAIL</label>
-            <input type="email" name="email" class="form-control" placeholder="r.sharma@company.com" required>
+            <input type="email" name="email" class="form-control" required placeholder="executive@enterprise.com">
           </div>
           <div class="form-group">
-            <label>ORGANIZATION / TITLE</label>
-            <input type="text" name="title" class="form-control" placeholder="e.g. Chief Financial Officer">
+            <label>ORGANIZATION & ROLE</label>
+            <input type="text" name="organization" class="form-control" placeholder="Company Name & Title">
           </div>
           <div class="form-group">
-            <label>PRACTICE AREA OF INTEREST</label>
-            <select name="practice_area" class="form-control">
-              <option>Strategy & Corporate Growth</option>
-              <option>Operational Excellence</option>
-              <option>Digital Transformation & AI</option>
-              <option>Organization & Governance</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>EXECUTIVE OVERVIEW / MESSAGE</label>
-            <textarea name="message" class="form-control" rows="4" placeholder="Briefly describe your objectives..."></textarea>
+            <label>STRATEGIC SCOPE / MESSAGE</label>
+            <textarea name="message" class="form-control" rows="5" required placeholder="Describe your challenge or advisory requirement..."></textarea>
           </div>
           <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;">Submit Confidential Inquiry &rarr;</button>
         </form>
       </div>
-    </section>
+    </div>
   </div>
 
-  <!-- CALL TO ACTION BANNER -->
+
+  <!-- ==================== CTA BANNER & FOOTER ==================== -->
   <section class="cta-banner">
-    <div class="container cta-flex reveal">
+    <div class="container cta-flex">
       <div class="cta-text">
-        <h2>Ready for Strategic Transformation?<br><span>What's Your Next Strategic Move?</span></h2>
+        <h2>Ready to Master<br><span>Your Next Move?</span></h2>
       </div>
-      <a onclick="navigateTo('contact-page')" class="btn-gold">Schedule Partner Consultation &rarr;</a>
+      <div>
+        <a href="#contact" class="btn-gold" style="padding: 16px 36px; font-size: 0.95rem;">Schedule Executive Session &rarr;</a>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <a onclick="navigateTo('home-page')" class="brand-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-              <defs>
-                <linearGradient id="goldGradF" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#F5DB9A" />
-                  <stop offset="50%" stop-color="#C5A059" />
-                  <stop offset="100%" stop-color="#8C6D2D" />
-                </linearGradient>
-              </defs>
-              <path d="M15,28 L32,72 L50,42 L68,72 L85,28 L72,28 L60,56 L50,38 L40,56 L28,28 Z" fill="url(#goldGradF)"/>
-              <polygon points="50,14 56,24 44,24" fill="url(#goldGradF)"/>
-              <circle cx="50" cy="11" r="2.5" fill="url(#goldGradF)"/>
-              <rect x="20" y="80" width="60" height="4" rx="2" fill="url(#goldGradF)"/>
+          <a href="#home" class="brand-logo" style="margin-bottom: 20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="width: 36px; height: 36px;">
+              <path d="M15,28 L32,72 L50,42 L68,72 L85,28 L72,28 L60,56 L50,38 L40,56 L28,28 Z" fill="#C5A059"/>
+              <polygon points="50,14 56,24 44,24" fill="#C5A059"/>
+              <rect x="20" y="80" width="60" height="4" rx="2" fill="#C5A059"/>
             </svg>
             <div class="logo-text">
-              <span class="logo-title">YOUR WAZIR</span>
+              <span class="logo-title" style="color: #fff;">YOUR WAZIR</span>
               <span class="logo-subtitle">MANAGEMENT CONSULTING</span>
             </div>
           </a>
-          <p style="margin-top: 20px; color: var(--text-dim); font-size: 0.85rem; max-width: 260px;">
-            Strategic Thinking. Meaningful Transformation. Sustainable Impact.
-          </p>
+          <p style="color: var(--text-dim); font-size: 0.88rem; max-width: 300px;">Elite strategic advisory guiding enterprise boards and C-suite leaders through structural transformation.</p>
         </div>
         <div class="footer-col">
-          <h5>COMPANY</h5>
+          <h5>Navigation</h5>
           <ul>
-            <li><a onclick="navigateTo('about-page')">About Us</a></li>
-            <li><a onclick="navigateTo('approach-page')">Our Approach</a></li>
-            <li><a onclick="navigateTo('contact-page')">Contact</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#approach">Methodology</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>SERVICES</h5>
+          <h5>Expertise</h5>
           <ul>
-            <li><a onclick="navigateTo('services-page')">Strategy & Growth</a></li>
-            <li><a onclick="navigateTo('services-page')">Operational Excellence</a></li>
-            <li><a onclick="navigateTo('services-page')">Digital & AI</a></li>
+            <li><a href="#services">Corporate Strategy</a></li>
+            <li><a href="#services">Operations</a></li>
+            <li><a href="#services">Digital & AI</a></li>
+            <li><a href="#services">Governance</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>INSIGHTS</h5>
+          <h5>Insights</h5>
           <ul>
-            <li><a onclick="navigateTo('insights-page')">Briefings</a></li>
-            <li><a onclick="navigateTo('insights-page')">Research</a></li>
+            <li><a href="#insights">Publications</a></li>
+            <li><a href="#insights">Boardroom Notes</a></li>
+            <li><a href="#insights">Case Studies</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>CONTACT</h5>
-          <ul style="color: var(--text-dim);">
-            <li>hello@yourwazir.com</li>
-            <li>+91 98765 43210</li>
-            <li>Kolkata, India</li>
+          <h5>Global Presence</h5>
+          <ul>
+            <li>New York &bull; London &bull; Dubai</li>
+            <li>Singapore &bull; Zurich &bull; Tokyo</li>
+            <li style="margin-top: 15px; color: var(--accent-gold);">advisory@yourwazir.com</li>
           </ul>
         </div>
       </div>
-
       <div class="footer-bottom">
-        <div>&copy; 2026 Your Wazir. All Rights Reserved.</div>
-        <div>
-          <a href="#" style="margin-right: 20px; color: inherit;">Privacy Policy</a>
-          <a href="#" style="color: inherit;">Terms of Service</a>
+        <div>&copy; 2026 Your Wazir Management Consulting Practice. All rights reserved.</div>
+        <div style="display: flex; gap: 24px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Engagement</a>
+          <a href="#">Compliance</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- INTERACTIVE JAVASCRIPT: ROUTING, PARALLAX, FAQ & COUNTERS -->
+  <!-- ==================== JAVASCRIPT INTERACTIVITY & SCROLL SPY ==================== -->
   <script>
-    // 1. NAVIGATION & PAGE ROUTING
-    function navigateTo(pageId) {
-      const pages = document.querySelectorAll('.page-view');
-      pages.forEach(page => page.classList.remove('active-page'));
-
-      const navLinks = document.querySelectorAll('.nav-links a');
-      navLinks.forEach(link => link.classList.remove('active-link'));
-
-      const targetPage = document.getElementById(pageId);
-      if (targetPage) {
-        targetPage.classList.add('active-page');
-      }
-
-      const activeNav = document.getElementById('nav-' + pageId);
-      if (activeNav) {
-        activeNav.classList.add('active-link');
-      }
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    // 1. FAQ Accordion Logic
+    function toggleFaq(element) {
+      const parentItem = element.parentElement;
+      const isOpen = parentItem.classList.contains('open');
       
-      // Trigger animations on page switch
-      setTimeout(handleScrollAnimations, 100);
+      // Close all other items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('open');
+      });
+
+      // Toggle current item
+      if (!isOpen) {
+        parentItem.classList.add('open');
+      }
     }
 
-    // 2. SCROLL REVEAL ANIMATIONS
-    function handleScrollAnimations() {
-      const reveals = document.querySelectorAll('.page-view.active-page .reveal');
-      const windowHeight = window.innerHeight;
-      
+    // 2. Scroll Reveal Intersection Observer
+    function checkScrollReveals() {
+      const reveals = document.querySelectorAll('.reveal');
       reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
         const elementTop = element.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 80) {
+        const elementVisible = 100;
+        if (elementTop < windowHeight - elementVisible) {
           element.classList.add('active');
         }
       });
     }
 
-    window.addEventListener('scroll', handleScrollAnimations);
-    window.addEventListener('DOMContentLoaded', handleScrollAnimations);
+    window.addEventListener('scroll', checkScrollReveals);
 
-    // 3. FAQ ACCORDION TOGGLE
-    function toggleFaq(element) {
-      const item = element.parentElement;
-      item.classList.toggle('open');
-    }
-
-    // 4. MOUSE PARALLAX TILT EFFECT ON HERO
-    const heroImage = document.getElementById('hero-tilt-img');
-    if (heroImage) {
-      document.addEventListener('mousemove', (e) => {
-        const x = (window.innerWidth / 2 - e.pageX) / 45;
-        const y = (window.innerHeight / 2 - e.pageY) / 45;
-        heroImage.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-      });
-    }
-
-    // 5. ANIMATED STAT COUNTERS
-    let countersTriggered = false;
-    function triggerCounters() {
-      if (countersTriggered) return;
-      const statNumbers = document.querySelectorAll('.stat-number');
-      const statsSection = document.querySelector('.stats-bar');
+    // 3. Scroll Spy for Navigation Links Active State
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id], div[id]');
+      const navLinks = document.querySelectorAll('.nav-links a.nav-link');
       
-      if (statsSection) {
-        const rect = statsSection.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-          countersTriggered = true;
-          statNumbers.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const speed = 200;
-            const updateCount = () => {
-              const count = +counter.innerText.replace('$', '');
-              const inc = target / speed;
-              if (count < target) {
-                counter.innerText = (counter.getAttribute('data-target').includes('.') ? (count + inc).toFixed(1) : Math.ceil(count + inc));
-                setTimeout(updateCount, 15);
-              } else {
-                counter.innerText = target + (counter.getAttribute('data-target').includes('.') ? 'B+' : '+');
-              }
-            };
-            updateCount();
-          });
+      let currentSection = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= (sectionTop - 150)) {
+          currentSection = section.getAttribute('id');
         }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active-link');
+        if (link.getAttribute('href') === '#' + currentSection) {
+          link.classList.add('active-link');
+        }
+      });
+    });
+
+    // 4. Animated Counters for Stats Bar
+    let counted = false;
+    function startCounters() {
+      const statsSection = document.querySelector('.stats-bar');
+      if (!statsSection) return;
+      const rect = statsSection.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0 && !counted) {
+        counted = true;
+        const counters = document.querySelectorAll('.stat-number');
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-target');
+          const duration = 2000; // ms
+          const increment = target / (duration / 16);
+          let current = 0;
+          
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              counter.innerText = target % 1 !== 0 ? current.toFixed(1) : Math.floor(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCounter();
+        });
       }
     }
 
-    window.addEventListener('scroll', triggerCounters);
+    window.addEventListener('scroll', startCounters);
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      checkScrollReveals();
+      startCounters();
+    });
   </script>
 </body>
 </html>
