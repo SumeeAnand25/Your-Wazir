@@ -206,7 +206,6 @@
 
     .page-hero {
       position: relative;
-      background-attachment: fixed;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -440,7 +439,6 @@
     .parallax-banner {
       position: relative;
       background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80');
-      background-attachment: fixed;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -1019,23 +1017,28 @@
         </div>
       </div>
 
+      <!-- FORM CONFIGURED WITH FORMSUBMIT (REPLACE 'hello@yourwazir.com' WITH YOUR ACTUAL EMAIL) -->
       <div class="contact-form reveal">
-        <form onsubmit="event.preventDefault(); alert('Thank you. A senior partner will contact you directly within 24 hours.');">
+        <form action="https://formsubmit.co/hello@yourwazir.com" method="POST">
+          <!-- FormSubmit Configuration Inputs -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Confidential Inquiry - Your Wazir">
+          
           <div class="form-group">
             <label>FULL NAME</label>
-            <input type="text" class="form-control" placeholder="e.g. Rahul Sharma" required>
+            <input type="text" name="name" class="form-control" placeholder="e.g. Rahul Sharma" required>
           </div>
           <div class="form-group">
             <label>CORPORATE EMAIL</label>
-            <input type="email" class="form-control" placeholder="r.sharma@company.com" required>
+            <input type="email" name="email" class="form-control" placeholder="r.sharma@company.com" required>
           </div>
           <div class="form-group">
             <label>ORGANIZATION / TITLE</label>
-            <input type="text" class="form-control" placeholder="e.g. Chief Financial Officer">
+            <input type="text" name="title" class="form-control" placeholder="e.g. Chief Financial Officer">
           </div>
           <div class="form-group">
             <label>PRACTICE AREA OF INTEREST</label>
-            <select class="form-control">
+            <select name="practice_area" class="form-control">
               <option>Strategy & Corporate Growth</option>
               <option>Operational Excellence</option>
               <option>Digital Transformation & AI</option>
@@ -1044,7 +1047,7 @@
           </div>
           <div class="form-group">
             <label>EXECUTIVE OVERVIEW / MESSAGE</label>
-            <textarea class="form-control" rows="4" placeholder="Briefly describe your objectives..."></textarea>
+            <textarea name="message" class="form-control" rows="4" placeholder="Briefly describe your objectives..."></textarea>
           </div>
           <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;">Submit Confidential Inquiry &rarr;</button>
         </form>
