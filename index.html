@@ -1,101 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Wazir | Strategic Management Consulting</title>
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M15,28 L32,72 L50,42 L68,72 L85,28 L72,28 L60,56 L50,38 L40,56 L28,28 Z' fill='%23C5A059'/><polygon points='50,14 55,24 45,24' fill='%23C5A059'/><rect x='20' y='80' width='60' height='4' rx='2' fill='%23C5A059'/></svg>">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <style>
-    /* --- RESET & VARIABLES --- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    :root {
-      --primary-dark: #080A0B;
-      --accent-gold: #C5A059;
-      --text-light: #F8FAFC;
-      --text-dim: #94A3B8;
-      --container-max: 1200px;
-    }
-
-    body {
-      background-color: var(--primary-dark);
-      color: var(--text-light);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* --- RESPONSIVE WRAPPER --- */
-    .container {
-      width: 90%;
-      max-width: var(--container-max);
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    /* --- TYPOGRAPHY SCALE --- */
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 8vw, 4.5rem); /* Scales from 2.5rem to 4.5rem */
-      color: var(--accent-gold);
-    }
-
-    p {
-      font-size: clamp(1rem, 2vw, 1.125rem);
-      color: var(--text-dim);
-    }
-
-    /* --- FLEXIBLE LAYOUT --- */
-    .hero {
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 4rem 0;
-    }
-
-    /* Example Grid for content sections */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 4rem 0;
-    }
-
-    /* --- MEDIA QUERIES --- */
-    @media (max-width: 768px) {
-      .hero { padding: 2rem 0; }
-      .grid { gap: 1.5rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Mobile Menu Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <header class="container hero">
-    <h1>Wazir</h1>
-    <p>Strategic Management Consulting</p>
-  </header>
+    <!-- Responsive Navigation Bar -->
+    <header class="navbar-container">
+        <nav class="navbar">
+            <a href="#" class="nav-logo">Wazir</a>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
 
-  <section class="container grid">
-    <!-- Future Content Blocks Here -->
-    <div style="border: 1px solid var(--accent-gold); padding: 2rem;">
-      <h3>Strategy</h3>
-      <p>Precision execution.</p>
-    </div>
-    <div style="border: 1px solid var(--accent-gold); padding: 2rem;">
-      <h3>Operations</h3>
-      <p>Seamless efficiency.</p>
-    </div>
-  </section>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">Services</a></li>
+                <li><a href="#" class="nav-link">Architecture</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+                <li><a href="#" class="nav-link nav-btn">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- Main Content Layout -->
+    <main class="main-content">
+        <section class="hero">
+            <h1>Because Strategy Beats Force</h1>
+            <p>Delivering high-performance technical and functional consultancy tailored to your enterprise needs.</p>
+            <a href="#" class="cta-button">Get Started</a>
+        </section>
+
+        <section class="card-grid">
+            <div class="card">
+                <h3>Technical Strategy</h3>
+                <p>Scalable architecture design and cloud implementation.</p>
+            </div>
+            <div class="card">
+                <h3>Functional Ops</h3>
+                <p>Streamlining business processes for maximum efficiency.</p>
+            </div>
+            <div class="card">
+                <h3>Automation</h3>
+                <p>Background workflows built to save time and scale.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+    </script>
 </body>
 </html>
