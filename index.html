@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Wazir | Strategic Management Consulting</title>
+  <title>Your Wazir | Technical & Functional Consultancy</title>
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M15,28 L32,72 L50,42 L68,72 L85,28 L72,28 L60,56 L50,38 L40,56 L28,28 Z' fill='%23C5A059'/><polygon points='50,14 55,24 45,24' fill='%23C5A059'/><rect x='20' y='80' width='60' height='4' rx='2' fill='%23C5A059'/></svg>">
@@ -14,7 +14,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* --- DESIGN SYSTEM & PARALLAX VARS --- */
     :root {
       --primary-dark: #080A0B;
       --surface-dark: #121518;
@@ -59,7 +58,6 @@
       margin: 0 auto;
     }
 
-    /* --- SCROLL ANIMATION & REVEAL CLASSES --- */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -71,7 +69,6 @@
       transform: translateY(0);
     }
 
-    /* --- BRAND LOGO --- */
     .brand-logo {
       display: flex;
       align-items: center;
@@ -97,8 +94,8 @@
     }
 
     .logo-subtitle {
-      font-size: 0.55rem;
-      letter-spacing: 3px;
+      font-size: 0.52rem;
+      letter-spacing: 2px;
       color: var(--accent-gold);
       font-weight: 700;
       margin-top: 4px;
@@ -107,7 +104,6 @@
 
     .footer-col .logo-title { color: #FFFFFF; }
 
-    /* --- BUTTONS & BADGES --- */
     .btn-gold {
       background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--accent-gold) 50%, var(--accent-gold-dark) 100%);
       color: #080A0B !important;
@@ -156,11 +152,10 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       backdrop-filter: blur(5px);
     }
 
-    /* --- SECTION HEADINGS & HERO PAGES --- */
     .section-subtitle {
       text-transform: uppercase;
       font-size: 0.8rem;
@@ -192,43 +187,6 @@
       line-height: 1.2;
     }
 
-    .page-hero {
-      position: relative;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: #fff;
-      padding: 120px 0 80px 0;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .page-hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at center, rgba(8,10,11,0.7) 0%, rgba(8,10,11,0.95) 100%);
-      z-index: 1;
-    }
-
-    .page-hero .container { position: relative; z-index: 2; }
-
-    .page-hero h1 {
-      font-family: var(--font-serif);
-      font-size: 3.6rem;
-      font-weight: 500;
-      margin-bottom: 16px;
-      line-height: 1.1;
-    }
-
-    .page-hero p {
-      color: var(--text-dim);
-      font-size: 1.15rem;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    /* --- NAVIGATION (GLASSMORPHISM & RESPONSIVE TOGGLE) --- */
     header {
       background-color: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(16px);
@@ -250,7 +208,7 @@
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 36px;
+      gap: 32px;
       align-items: center;
     }
 
@@ -279,7 +237,6 @@
     .nav-links a.active-link,
     .nav-links a:hover { color: var(--accent-gold); }
 
-    /* Mobile Hamburger Button Styling */
     .mobile-menu-btn {
       display: none;
       background: none;
@@ -289,12 +246,8 @@
       color: var(--primary-dark);
     }
 
-    .mobile-menu-btn svg {
-      width: 28px;
-      height: 28px;
-    }
+    .mobile-menu-btn svg { width: 28px; height: 28px; }
 
-    /* Mobile Dropdown Menu Container */
     .mobile-dropdown {
       display: none;
       background-color: rgba(255, 255, 255, 0.98);
@@ -304,9 +257,7 @@
       box-shadow: 0 15px 30px rgba(0,0,0,0.05);
     }
 
-    .mobile-dropdown.active {
-      display: block;
-    }
+    .mobile-dropdown.active { display: block; }
 
     .mobile-dropdown ul {
       list-style: none;
@@ -323,11 +274,9 @@
       transition: var(--transition-smooth);
     }
 
-    .mobile-dropdown ul li a:hover {
-      color: var(--accent-gold);
-    }
+    .mobile-dropdown ul li a:hover { color: var(--accent-gold); }
 
-    /* --- HERO SECTION --- */
+    /* --- REFINED HERO STYLING (FIXED LINE-BREAKS & SPACING) --- */
     .hero-parallax {
       position: relative;
       min-height: 90vh;
@@ -352,37 +301,63 @@
 
     .hero-text h1 {
       font-family: var(--font-serif);
-      font-size: 4rem;
-      line-height: 1.1;
+      font-size: 3.4rem;
+      line-height: 1.15;
       margin-bottom: 24px;
       font-weight: 500;
+      letter-spacing: -0.5px;
     }
 
-    .hero-text h1 span {
+    .hero-text h1 .hero-tagline-accent {
       background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-gold-light) 50%, var(--accent-gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      display: block;
+      display: inline-block;
       font-style: italic;
+      font-weight: 600;
+      margin-top: 4px;
     }
 
     .hero-text p {
       color: var(--text-dim);
       font-size: 1.1rem;
-      margin-bottom: 40px;
-      max-width: 540px;
+      margin-bottom: 36px;
+      max-width: 560px;
       line-height: 1.7;
     }
 
-    /* --- TRUE PARALLAX LAYERS & EFFECTS --- */
-    .parallax-section {
-      position: relative;
-      overflow: hidden;
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+    .hero-actions {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
     }
+
+    .hero-methodology-link {
+      color: var(--accent-gold);
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 12px 0;
+      position: relative;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-methodology-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 8px;
+      left: 0;
+      background-color: var(--accent-gold);
+      transition: var(--transition-smooth);
+    }
+
+    .hero-methodology-link:hover::after { width: 100%; }
+    .hero-methodology-link:hover { color: var(--accent-gold-light); }
 
     .parallax-image-wrapper {
       position: relative;
@@ -395,7 +370,6 @@
       border-radius: 12px;
       border: 1px solid var(--border-dark);
       box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-      transition: transform 0.1s ease-out;
     }
 
     .parallax-badge-card {
@@ -411,10 +385,8 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      transition: transform 0.2s ease-out;
     }
 
-    /* Floating background depth elements */
     .parallax-bg-shape {
       position: absolute;
       width: 400px;
@@ -423,10 +395,8 @@
       background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, transparent 70%);
       pointer-events: none;
       z-index: 1;
-      will-change: transform;
     }
 
-    /* --- STATS COUNTER BAR --- */
     .stats-bar {
       background: var(--surface-dark);
       border-top: 1px solid var(--border-dark);
@@ -458,7 +428,6 @@
       color: var(--text-dim);
     }
 
-    /* --- SERVICES & CARDS --- */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -468,7 +437,7 @@
 
     .service-card {
       background: var(--surface-light);
-      padding: 40px 30px;
+      padding: 36px 28px;
       border-radius: 8px;
       border: 1px solid var(--border-color);
       transition: var(--transition-smooth);
@@ -478,24 +447,24 @@
     }
 
     .service-card:hover {
-      top: -10px;
+      top: -8px;
       box-shadow: 0 25px 50px rgba(0,0,0,0.08);
       border-color: var(--accent-gold);
     }
 
     .service-card-icon {
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
       background: rgba(197, 160, 89, 0.1);
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       color: var(--accent-gold);
+      font-weight: 700;
     }
 
-    /* --- PARALLAX BREAK BANNER --- */
     .parallax-banner {
       position: relative;
       background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80');
@@ -517,85 +486,31 @@
 
     .parallax-banner .container { position: relative; z-index: 2; }
 
-    /* --- ABOUT / TEAM PAGE STYLES --- */
     .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 100px 0; align-items: center; }
     .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
     .value-card { background: #fff; padding: 36px; border-radius: 8px; border: 1px solid var(--border-color); }
-    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
-    .team-card { background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); text-align: center; }
-    .team-card img { width: 100%; height: 300px; object-fit: cover; filter: grayscale(20%); transition: var(--transition-smooth); }
-    .team-card:hover img { filter: grayscale(0%); transform: scale(1.03); }
-    .team-card-body { padding: 24px; }
 
-    /* --- SERVICES DETAILS --- */
-    .detail-service-item {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-      padding: 80px 0; border-bottom: 1px solid var(--border-color); align-items: center;
-    }
-    .detail-service-item:nth-child(even) { direction: rtl; }
-    .detail-service-item:nth-child(even) .service-detail-text { direction: ltr; }
-
-    /* --- PROCESS TIMELINE (APPROACH) --- */
-    .process-step {
-      display: grid; grid-template-columns: 90px 1fr; gap: 30px;
-      background: #fff; padding: 40px; border-radius: 8px; border: 1px solid var(--border-color);
-      margin-bottom: 24px; transition: var(--transition-smooth);
-    }
-    .process-step:hover { border-color: var(--accent-gold); transform: translateX(8px); }
-
-    /* --- INSIGHTS --- */
-    .insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
-    .insight-card { background: #fff; border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden; transition: var(--transition-smooth); }
-    .insight-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.06); }
-    .insight-card img { width: 100%; height: 220px; object-fit: cover; }
-    .insight-body { padding: 24px; }
-
-    /* --- FAQ ACCORDION --- */
-    .faq-wrapper { max-width: 800px; margin: 50px auto 0 auto; }
-    
-    .faq-item {
-      background: #fff;
-      border: 1px solid var(--border-color);
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+    .process-card {
+      background: rgba(26, 30, 35, 0.7);
+      border: 1px solid var(--border-dark);
+      padding: 40px 30px;
       border-radius: 8px;
-      margin-bottom: 16px;
-      overflow: hidden;
+      position: relative;
       transition: var(--transition-smooth);
     }
+    .process-card:hover { border-color: var(--accent-gold); transform: translateY(-5px); }
 
-    .faq-question {
-      padding: 22px 28px;
-      font-family: var(--font-serif);
-      font-size: 1.3rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .models-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px; }
+    .model-card {
+      background: #fff;
+      padding: 36px 24px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
     }
+    .model-card:hover { border-color: var(--accent-gold); box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
 
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-      padding: 0 28px;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .faq-item.open .faq-answer {
-      max-height: 200px;
-      padding: 0 28px 22px 28px;
-    }
-
-    .faq-toggle-icon {
-      transition: transform 0.3s ease;
-      font-size: 1.2rem;
-      color: var(--accent-gold);
-    }
-
-    .faq-item.open .faq-toggle-icon { transform: rotate(45deg); }
-
-    /* --- CONTACT FORM --- */
     .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; padding: 100px 0; align-items: center; }
     .contact-form { background: #fff; padding: 44px; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 20px 40px rgba(0,0,0,0.03); }
     .form-group { margin-bottom: 22px; }
@@ -606,7 +521,6 @@
     }
     .form-control:focus { border-color: var(--accent-gold); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15); }
 
-    /* --- FOOTER & CTA --- */
     .cta-banner {
       background: radial-gradient(circle at center, #181C20 0%, var(--primary-dark) 100%);
       color: #fff; padding: 90px 0; border-top: 1px solid var(--border-dark);
@@ -619,7 +533,7 @@
       background-color: var(--primary-dark); color: var(--text-dim);
       padding: 90px 0 30px 0; font-size: 0.88rem; border-top: 1px solid var(--border-dark);
     }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 70px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 70px; }
     .footer-col h5 { color: #fff; margin-bottom: 22px; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 12px; }
@@ -628,16 +542,13 @@
     .footer-bottom { border-top: 1px solid var(--border-dark); padding-top: 30px; display: flex; justify-content: space-between; color: #525E69; font-size: 0.82rem; }
 
     @media (max-width: 1024px) {
-      .hero-grid, .story-grid, .detail-service-item, .contact-grid, .footer-grid, .services-grid, .stats-grid, .insights-grid { grid-template-columns: 1fr !important; }
-      .values-grid, .team-grid { grid-template-columns: 1fr; }
-      .detail-service-item:nth-child(even) { direction: ltr; }
+      .hero-grid, .story-grid, .contact-grid, .footer-grid, .services-grid, .stats-grid, .values-grid, .process-grid, .models-grid { grid-template-columns: 1fr !important; }
       .cta-flex { flex-direction: column; gap: 30px; text-align: center; }
       .hero-parallax { min-height: auto; }
       .parallax-section { background-attachment: scroll; }
-      
-      /* Enable Mobile Hamburger Toggle Menu */
       .nav-links { display: none; }
       .mobile-menu-btn { display: block; }
+      .hero-text h1 { font-size: 2.6rem; }
     }
   </style>
 </head>
@@ -661,8 +572,8 @@
           <rect x="20" y="80" width="60" height="4" rx="2" fill="url(#goldGrad)"/>
         </svg>
         <div class="logo-text">
-          <span class="logo-title">YOUR WAZIR</span>
-          <span class="logo-subtitle">MANAGEMENT CONSULTING</span>
+          <span class="logo-title">WAZIR</span>
+          <span class="logo-subtitle">Technical & Functional Consultancy</span>
         </div>
       </a>
 
@@ -672,9 +583,9 @@
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#approach" class="nav-link">Approach</a></li>
-        <li><a href="#insights" class="nav-link">Insights</a></li>
+        <li><a href="#models" class="nav-link">Engagement</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li><a href="#contact" class="btn-gold">Schedule Advisory &rarr;</a></li>
+        <li><a href="#contact" class="btn-gold">Let's Talk &rarr;</a></li>
       </ul>
 
       <!-- Mobile Hamburger Button -->
@@ -693,35 +604,35 @@
           <li><a href="#about" class="mobile-nav-link">About</a></li>
           <li><a href="#services" class="mobile-nav-link">Services</a></li>
           <li><a href="#approach" class="mobile-nav-link">Approach</a></li>
-          <li><a href="#insights" class="mobile-nav-link">Insights</a></li>
+          <li><a href="#models" class="mobile-nav-link">Engagement</a></li>
           <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
-          <li><a href="#contact" class="btn-gold mobile-nav-link" style="margin-top: 8px;">Schedule Advisory &rarr;</a></li>
+          <li><a href="#contact" class="btn-gold mobile-nav-link" style="margin-top: 8px;">Let's Talk &rarr;</a></li>
         </ul>
       </div>
     </div>
   </header>
 
-  <!-- ==================== 1. HOME SECTION ==================== -->
+  <!-- ==================== 1. REFINED HERO SECTION ==================== -->
   <section id="home" class="hero-parallax">
-    <div class="parallax-bg-shape" style="top: -100px; right: -100px;" data-speed="0.05"></div>
+    <div class="parallax-bg-shape" style="top: -100px; right: -100px;"></div>
     <div class="container hero-grid">
-      <div class="hero-text reveal" data-speed="0.02">
-        <div class="pill-tag">Strategic Leadership Practice</div>
-        <h1>Precision Strategy.<br><span>Mastering the Next Move.</span>Sustainable Impact.</h1>
-        <p>Your Wazir is an elite management consulting firm guiding C-suite leaders and enterprise boards through high-stakes market expansion, operating model redesign, and digital evolution.</p>
-        <div style="display: flex; gap: 16px; align-items: center;">
-          <a href="#services" class="btn-gold">Explore Practice Areas &rarr;</a>
-          <a href="#approach" style="color: var(--accent-gold); font-weight: 600; font-size: 0.9rem; padding: 12px 20px;">Our Methodology &rarr;</a>
+      <div class="hero-text reveal">
+        <div class="pill-tag">Strategic Business Practice</div>
+        <h1>Technology • Automation • AI<br><span class="hero-tagline-accent">Because Strategy Beats Force.</span></h1>
+        <p>We help businesses improve the way they work using simple technology, seamless automation, and practical functional support.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-gold">Explore Services &rarr;</a>
+          <a href="#approach" class="hero-methodology-link">Our Methodology &rarr;</a>
         </div>
       </div>
       
-      <div class="parallax-image-wrapper reveal" data-speed="-0.04">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" class="parallax-img-main" id="hero-tilt-img" alt="Luxury Corporate Architecture">
-        <div class="parallax-badge-card" data-speed="0.03">
+      <div class="parallax-image-wrapper reveal">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" class="parallax-img-main" alt="Corporate Architecture">
+        <div class="parallax-badge-card">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           <div>
-            <div style="font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; color: #fff;">Trusted Advisor</div>
-            <div style="font-size: 0.75rem; color: var(--text-dim);">GLOBAL ENTERPRISES & FAMILY OFFICES</div>
+            <div style="font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; color: #fff;">Simplicity First</div>
+            <div style="font-size: 0.75rem; color: var(--text-dim);">TECH & FUNCTIONAL CONSULTING</div>
           </div>
         </div>
       </div>
@@ -732,142 +643,55 @@
   <section class="stats-bar">
     <div class="container stats-grid">
       <div class="reveal">
-        <div class="stat-number" data-target="150">0</div>
-        <div class="stat-label">Engagements Completed</div>
+        <div class="stat-number" data-target="8">0</div>
+        <div class="stat-label">Core Capabilities</div>
       </div>
       <div class="reveal">
-        <div class="stat-number" data-target="4.2">0</div>
-        <div class="stat-label">$ Value Created (Billion)</div>
+        <div class="stat-number" data-target="100">0</div>
+        <div class="stat-label">% Practical Focus</div>
       </div>
       <div class="reveal">
-        <div class="stat-number" data-target="98">0</div>
-        <div class="stat-label">% Executive Satisfaction</div>
+        <div class="stat-number" data-target="4">0</div>
+        <div class="stat-label">Flexible Engagement Models</div>
       </div>
       <div class="reveal">
-        <div class="stat-number" data-target="12">0</div>
-        <div class="stat-label">Global Offices & Hubs</div>
+        <div class="stat-number" data-target="1">0</div>
+        <div class="stat-label">Unified Vision</div>
       </div>
     </div>
   </section>
 
-  <!-- PRACTICE AREAS PREVIEW -->
-  <section style="padding: 100px 0;">
-    <div class="container">
-      <div class="section-subtitle">WHAT WE DO</div>
-      <h2 class="section-title">Core Advisory Capabilities</h2>
-      <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto;">End-to-end management capability designed for high-stakes enterprise decisions.</p>
-      
-      <div class="services-grid">
-        <div class="service-card reveal" onclick="location.href='#services'">
-          <div class="service-card-icon">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-          </div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Corporate Strategy</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">Market entry, capital allocation, and long-term positioning against industry disruption.</p>
-        </div>
-
-        <div class="service-card reveal" onclick="location.href='#services'">
-          <div class="service-card-icon">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          </div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Operational Excellence</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">Process redesign, lean cost optimization, and supply chain resiliency.</p>
-        </div>
-
-        <div class="service-card reveal" onclick="location.href='#services'">
-          <div class="service-card-icon">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Digital & AI Strategy</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">Modernizing core IT, enterprise AI integration, and data architecture governance.</p>
-        </div>
-
-        <div class="service-card reveal" onclick="location.href='#services'">
-          <div class="service-card-icon">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 12px;">Organization & Governance</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">Operating model design, executive succession, and culture transformation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARALLAX BREAK BANNER -->
-  <section class="parallax-banner parallax-section">
-    <div class="container reveal">
-      <div class="pill-tag">THE WAZIR PROMISE</div>
-      <h2 style="font-family: var(--font-serif); font-size: 3.2rem; max-width: 800px; margin: 0 auto 20px auto;">"In chess, the Wazir is the most versatile piece on the board. In business, we are yours."</h2>
-      <p style="color: var(--accent-gold-light); font-size: 1.1rem; font-style: italic;">Anticipating change. Navigating complexity. Delivering results.</p>
-    </div>
-  </section>
-
-  <!-- ==================== 2. ABOUT SECTION ==================== -->
+  <!-- ==================== 2. ABOUT US SECTION ==================== -->
   <div id="about">
-    <section class="page-hero parallax-section" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80');">
-      <div class="container reveal">
-        <div class="pill-tag">WHO WE ARE</div>
-        <h1>Your Trusted Strategic Advisor</h1>
-        <p>Named after the pivotal strategic piece on the chessboard (The Vizier / Wazir), we guide corporate leaders through complex transformations with foresight and agility.</p>
-      </div>
-    </section>
-
     <section class="container story-grid">
       <div class="reveal">
-        <div class="section-subtitle" style="justify-content: flex-start;">OUR FOUNDATION</div>
-        <h2 style="font-family: var(--font-serif); font-size: 2.6rem; margin-bottom: 20px; line-height: 1.2;">Built on Rationale, Driven by Transformation</h2>
-        <p style="color: var(--text-muted); margin-bottom: 18px;">Founded with a clear purpose to bridge executive vision with execution, Your Wazir serves as a trusted sounding board to senior leaders and enterprise boards globally.</p>
-        <p style="color: var(--text-muted);">We combine deep industry knowledge, rigorous analytical frameworks, and a hands-on collaborative approach to ensure every strategic recommendation creates lasting commercial value.</p>
+        <div class="section-subtitle" style="justify-content: flex-start;">01 / ABOUT US</div>
+        <h2 style="font-family: var(--font-serif); font-size: 2.6rem; margin-bottom: 20px; line-height: 1.2;">The Wazir Advantage</h2>
+        <p style="color: var(--text-muted); margin-bottom: 18px;">Many businesses spend more time and money than they need to because their systems and day-to-day work have become complicated. More tools and more people do not always solve the problem.</p>
+        <p style="color: var(--text-muted); margin-bottom: 18px;">Your Wazir helps businesses make things simpler. We look at how your business works, understand where time or money is being lost, and then use technology, automation and practical support to improve it.</p>
+        <p style="color: var(--text-main); font-weight: 600;">Our goal is simple: help you save time, reduce mistakes, work better and build systems that can grow with your business.</p>
       </div>
       <div class="reveal">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);" alt="Team Meeting">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);" alt="Team Consultation">
       </div>
     </section>
 
     <section style="background: var(--surface-dark); color: #fff; padding: 100px 0;">
       <div class="container">
-        <div class="section-subtitle">OUR VALUES</div>
-        <h2 class="section-title" style="color: #fff;">Principles That Drive Us</h2>
+        <div class="section-subtitle">CORE PRINCIPLES</div>
+        <h2 class="section-title" style="color: #fff;">Clear Advice. Practical Solutions.</h2>
         <div class="values-grid">
           <div class="value-card reveal" style="background: var(--card-dark); border-color: var(--border-dark); color: #fff;">
-            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; color: var(--accent-gold);">01. Uncompromising Candor</h3>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">We deliver unvarnished, data-backed insights so leaders can make courageous decisions.</p>
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; color: var(--accent-gold);">Lean Architecture</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Eliminating unnecessary tooling and complexity to focus exclusively on efficiency and user clarity.</p>
           </div>
           <div class="value-card reveal" style="background: var(--card-dark); border-color: var(--border-dark); color: #fff;">
-            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; color: var(--accent-gold);">02. Joint Ownership</h3>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">We embed directly with your teams, co-creating solutions and building internal capability.</p>
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; color: var(--accent-gold);">Scalable Design</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Building automated workflows and internal applications designed to scale cleanly as your transaction volume expands.</p>
           </div>
           <div class="value-card reveal" style="background: var(--card-dark); border-color: var(--border-dark); color: #fff;">
-            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; color: var(--accent-gold);">03. Measurable Value</h3>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">We measure our success exclusively through the tangible EBITDA and cultural performance of our clients.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="container" style="padding: 100px 0;">
-      <div class="section-subtitle">LEADERSHIP</div>
-      <h2 class="section-title">Meet Our Senior Partners</h2>
-      <div class="team-grid">
-        <div class="team-card reveal">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80" alt="Partner">
-          <div class="team-card-body">
-            <h4 style="font-family: var(--font-serif); font-size: 1.4rem;">Arjun Sengupta</h4>
-            <p style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-top: 4px;">Managing Partner — Corporate Strategy</p>
-          </div>
-        </div>
-        <div class="team-card reveal">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Partner">
-          <div class="team-card-body">
-            <h4 style="font-family: var(--font-serif); font-size: 1.4rem;">Priya Roy</h4>
-            <p style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-top: 4px;">Senior Partner — Digital & Operations</p>
-          </div>
-        </div>
-        <div class="team-card reveal">
-          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80" alt="Partner">
-          <div class="team-card-body">
-            <h4 style="font-family: var(--font-serif); font-size: 1.4rem;">Marcus Vance</h4>
-            <p style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-top: 4px;">Partner — M&A and Restructuring</p>
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; color: var(--accent-gold);">Agile Support</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Small enough to stay flexible and close to our clients, while bringing deep technical and functional capabilities.</p>
           </div>
         </div>
       </div>
@@ -875,147 +699,136 @@
   </div>
 
   <!-- ==================== 3. SERVICES SECTION ==================== -->
-  <div id="services">
-    <section class="page-hero parallax-section" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80');">
-      <div class="container reveal">
-        <div class="pill-tag">WHAT WE OFFER</div>
-        <h1>Comprehensive Advisory Practice</h1>
-        <p>Rigorous analysis paired with transformative execution frameworks tailored to complex enterprise challenges.</p>
-      </div>
-    </section>
+  <div id="services" style="padding: 100px 0;">
+    <div class="container">
+      <div class="section-subtitle">02 / WHAT WE OFFER</div>
+      <h2 class="section-title">Our Services</h2>
+      <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto;">You can use one service or combine several, depending on what your business needs.</p>
+      
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-card-icon">01</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px;">Custom App Development</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">We build apps and internal tools made for your business and the way your team works.</p>
+        </div>
 
-    <div class="container" style="padding-top: 60px;">
-      <div class="detail-service-item reveal">
-        <div class="service-detail-text">
-          <div class="pill-tag">PRACTICE 01</div>
-          <h2 style="font-family: var(--font-serif); font-size: 2.4rem; margin-bottom: 16px;">Corporate & Growth Strategy</h2>
-          <p style="color: var(--text-muted); margin-bottom: 20px;">We help market leaders navigate uncertainty, identify high-yield adjacencies, and architect robust long-term growth blueprints that outpace industry shifts.</p>
-          <ul style="list-style: none; color: var(--text-main); font-weight: 500; display: flex; flex-direction: column; gap: 10px;">
-            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> Market Entry & Expansion Roadmaps</li>
-            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> Portfolio Optimization & Capital Allocation</li>
-            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> M&A Commercial Due Diligence & Synergy Integration</li>
-          </ul>
+        <div class="service-card reveal">
+          <div class="service-card-icon">02</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px;">AI Consulting</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">We help you find useful ways to use AI in your business, focusing on saving time and improving results.</p>
         </div>
-        <div>
-          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px;" alt="Strategy">
-        </div>
-      </div>
 
-      <div class="detail-service-item reveal">
-        <div class="service-detail-text">
-          <div class="pill-tag">PRACTICE 02</div>
-          <h2 style="font-family: var(--font-serif); font-size: 2.4rem; margin-bottom: 16px;">Operational Excellence</h2>
-          <p style="color: var(--text-muted); margin-bottom: 20px;">Streamline workflows, strip out friction, and re-engineer core operations to maximize efficiency, margin protection, and supply chain resiliency.</p>
-          <ul style="list-style: none; color: var(--text-main); font-weight: 500; display: flex; flex-direction: column; gap: 10px;">
-            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> Lean Process Redesign & Cost Optimization</li>
-            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> Supply Chain & Procurement Transformation</li>
-            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--accent-gold);">&check;</span> Enterprise Risk Management & Mitigations</li>
-          </ul>
+        <div class="service-card reveal">
+          <div class="service-card-icon">03</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px;">Automation</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">We automate repetitive work and connect systems so your team spends less time doing identical tasks.</p>
         </div>
-        <div>
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 8px;" alt="Operations">
+
+        <div class="service-card reveal">
+          <div class="service-card-icon">04</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px;">Website Development</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">We build and maintain fast, secure and easy-to-use websites that support your commercial objectives.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-icon">05</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px;">Localization Management</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">We help businesses manage work across different countries, languages, distributed teams, and vendor networks.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-icon">06</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px;">Operations Management</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">We review how your teams work and help create simpler, clearer and more efficient operational processes.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-icon">07</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px;">Admin Support</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">We provide reliable day-to-day support for administrative and business tasks so your core team can focus.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-icon">08</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px;">System Review</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">We audit existing systems, spot bottlenecks, and suggest practical fixes before you spend money on new tech.</p>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- PARALLAX BREAK BANNER -->
+  <section class="parallax-banner parallax-section">
+    <div class="container reveal">
+      <div class="pill-tag">THE WAZIR PROMISE</div>
+      <h2 style="font-family: var(--font-serif); font-size: 3rem; max-width: 800px; margin: 0 auto 20px auto;">"Because Strategy Beats Force."</h2>
+      <p style="color: var(--accent-gold-light); font-size: 1.1rem; font-style: italic;">Simple, practical, and focused execution for growing enterprises.</p>
+    </div>
+  </section>
 
   <!-- ==================== 4. APPROACH SECTION ==================== -->
-  <div id="approach" style="background: var(--surface-dark); color: #fff; padding: 100px 0; margin-top: 80px;">
+  <div id="approach" style="background: var(--surface-dark); color: #fff; padding: 100px 0;">
     <div class="container">
-      <div class="section-subtitle">OUR METHODOLOGY</div>
-      <h2 class="section-title" style="color: #fff;">The Wazir Advisory Framework</h2>
-      <p style="text-align: center; color: var(--text-dim); max-width: 600px; margin: 0 auto 50px auto;">A disciplined, four-phase engagement model designed to safeguard capital and accelerate execution velocity.</p>
+      <div class="section-subtitle">03 / HOW WE WORK</div>
+      <h2 class="section-title" style="color: #fff;">Simple, Practical and Focused</h2>
+      <p style="text-align: center; color: var(--text-dim); max-width: 650px; margin: 0 auto 20px auto;">We work closely with your team and focus on solving the problem right in front of us. Whether starting fresh, scaling up, or refining processes, our process stays clear.</p>
+      
+      <div style="text-align: center; color: var(--accent-gold); font-family: var(--font-serif); font-size: 1.2rem; font-style: italic; margin-bottom: 40px;">
+        Understand the problem &rarr; find the right solution &rarr; build it &rarr; support it.
+      </div>
 
-      <div style="max-width: 900px; margin: 0 auto;">
-        <div class="process-step reveal" style="background: var(--card-dark); border-color: var(--border-dark);">
-          <div style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--accent-gold); display: flex; align-items: center; justify-content: center;">01</div>
-          <div>
-            <h4 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 8px; color: #fff;">Diagnostic & Discovery</h4>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">Rigorous quantitative audit of financials, operational bottlenecks, and market positioning to isolate root causes.</p>
-          </div>
+      <div class="process-grid">
+        <div class="process-card reveal">
+          <div style="font-family: var(--font-serif); font-size: 2rem; color: var(--accent-gold); margin-bottom: 12px;">01</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 8px;">Understand First</h4>
+          <p style="color: var(--text-dim); font-size: 0.9rem;">We first understand your business, your current workflow, and the exact problem you want to solve.</p>
         </div>
 
-        <div class="process-step reveal" style="background: var(--card-dark); border-color: var(--border-dark);">
-          <div style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--accent-gold); display: flex; align-items: center; justify-content: center;">02</div>
-          <div>
-            <h4 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 8px; color: #fff;">Strategic Architecture</h4>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">Co-designing bespoke tactical options and robust financial models backed by multi-scenario stress tests.</p>
-          </div>
+        <div class="process-card reveal">
+          <div style="font-family: var(--font-serif); font-size: 2rem; color: var(--accent-gold); margin-bottom: 12px;">02</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 8px;">Choose What Fits</h4>
+          <p style="color: var(--text-dim); font-size: 0.9rem;">We recommend solutions that make sense for your specific business—not what is simply popular or expensive.</p>
         </div>
 
-        <div class="process-step reveal" style="background: var(--card-dark); border-color: var(--border-dark);">
-          <div style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--accent-gold); display: flex; align-items: center; justify-content: center;">03</div>
-          <div>
-            <h4 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 8px; color: #fff;">Embedded Execution</h4>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">Working shoulder-to-shoulder with internal teams to roll out changes without disrupting ongoing core business.</p>
-          </div>
-        </div>
-
-        <div class="process-step reveal" style="background: var(--card-dark); border-color: var(--border-dark);">
-          <div style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--accent-gold); display: flex; align-items: center; justify-content: center;">04</div>
-          <div>
-            <h4 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 8px; color: #fff;">Sustainable Transfer</h4>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">Institutionalizing governance protocols, training internal champions, and handing over full operational autonomy.</p>
-          </div>
+        <div class="process-card reveal">
+          <div style="font-family: var(--font-serif); font-size: 2rem; color: var(--accent-gold); margin-bottom: 12px;">03</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 8px;">Build for Long-Term</h4>
+          <p style="color: var(--text-dim); font-size: 0.9rem;">We prioritize solutions that are straightforward to use, maintain, and adapt as your enterprise scales.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==================== 5. INSIGHTS SECTION ==================== -->
-  <div id="insights" style="padding: 100px 0;">
+  <!-- ==================== 5. ENGAGEMENT MODELS SECTION ==================== -->
+  <div id="models" style="padding: 100px 0;">
     <div class="container">
-      <div class="section-subtitle">THOUGHT LEADERSHIP</div>
-      <h2 class="section-title">Latest Executive Insights</h2>
-      <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto;">Perspectives on corporate strategy, technological shifts, and modern enterprise governance.</p>
+      <div class="section-subtitle">04 / WAYS TO WORK WITH US</div>
+      <h2 class="section-title">Flexible Engagement Options</h2>
+      <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto;">Tailored partnership models designed to suit your project scope and resource cadence.</p>
 
-      <div class="insights-grid">
-        <div class="insight-card reveal">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Insight">
-          <div class="insight-body">
-            <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Corporate Strategy &bull; Oct 2026</div>
-            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 12px;">Navigating Margin Compression in Volatile Markets</h4>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">How executive boards can proactively restructure cost baselines ahead of macroeconomic headwinds.</p>
-          </div>
+      <div class="models-grid">
+        <div class="model-card reveal">
+          <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Model 01</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px;">Project</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">A fixed scope engagement with a clear timeline and well-defined set of deliverables.</p>
         </div>
 
-        <div class="insight-card reveal">
-          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Insight">
-          <div class="insight-body">
-            <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Digital Transformation &bull; Sep 2026</div>
-            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 12px;">Beyond the Hype: Practical Enterprise AI ROI</h4>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Moving past experimental proof-of-concepts into deep core operational workflow automation.</p>
-          </div>
+        <div class="model-card reveal">
+          <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Model 02</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px;">Consulting</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Expert guidance targeting specific business, technology, AI, or architectural requirements.</p>
         </div>
 
-        <div class="insight-card reveal">
-          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" alt="Insight">
-          <div class="insight-body">
-            <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Governance &bull; Aug 2026</div>
-            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 12px;">The Evolving Role of the Board in Crisis Response</h4>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Structuring agile executive response committees to handle high-stakes operational shocks.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ SECTION -->
-      <div class="faq-wrapper reveal">
-        <div class="section-subtitle" style="margin-top: 80px;">FAQ</div>
-        <h3 style="font-family: var(--font-serif); font-size: 2.2rem; text-align: center; margin-bottom: 30px;">Frequently Answered Questions</h3>
-        
-        <div class="faq-item">
-          <div class="faq-question">What is the typical duration of a strategy engagement? <span class="faq-toggle-icon">+</span></div>
-          <div class="faq-answer">Engagements typically range from 6 to 16 weeks depending on the scope of transformation, ranging from focused diagnostic sprints to full-scale post-merger integration.</div>
+        <div class="model-card reveal">
+          <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Model 03</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px;">Dedicated Development</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Ongoing development support when you need a reliable technical resource for an extended period.</p>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-question">How does Your Wazir differ from traditional consulting firms? <span class="faq-toggle-icon">+</span></div>
-          <div class="faq-answer">We emphasize deep operational embedding over slide-deck delivery. Our partners remain hands-on throughout execution to ensure accountability and measurable EBITDA impact.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">What sectors do you primarily advise? <span class="faq-toggle-icon">+</span></div>
-          <div class="faq-answer">We advise global enterprises, family offices, and high-growth mid-market firms across financial services, enterprise technology, manufacturing, and logistics.</div>
+        <div class="model-card reveal">
+          <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Model 04</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px;">Retainer & Maintenance</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Continuous support for websites, applications, backend systems, and ongoing enhancements.</p>
         </div>
       </div>
     </div>
@@ -1025,10 +838,10 @@
   <div id="contact" class="cta-banner">
     <div class="container cta-flex reveal">
       <div class="cta-text">
-        <h2>Ready to Make Your <br><span>Next Strategic Move?</span></h2>
+        <h2>Ready to Make Things <span>Simpler?</span></h2>
       </div>
       <div>
-        <a href="#contact-form" class="btn-gold" style="padding: 18px 36px; font-size: 1rem;">Schedule Executive Consultation &rarr;</a>
+        <a href="#contact-form" class="btn-gold" style="padding: 18px 36px; font-size: 1rem;">Let's Talk &rarr;</a>
       </div>
     </div>
   </div>
@@ -1037,45 +850,46 @@
     <div class="contact-grid">
       <div class="reveal">
         <div class="pill-tag">GET IN TOUCH</div>
-        <h2 style="font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 20px; line-height: 1.2;">Initiate a Confidential Conversation</h2>
-        <p style="color: var(--text-muted); margin-bottom: 30px;">Connect directly with our senior partnership practice to discuss your strategic objectives or board advisory requirements.</p>
+        <h2 style="font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 20px; line-height: 1.2;">Start Your Project Consultation</h2>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">Clear advice. Practical solutions. Flexible support. Connect with us to discuss your automation, technology, or functional consulting needs.</p>
         
         <div style="display: flex; flex-direction: column; gap: 16px;">
           <div style="display: flex; align-items: center; gap: 14px;">
             <div style="width: 40px; height: 40px; background: rgba(197,160,89,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--accent-gold);">&rarr;</div>
-            <div><strong>Global Headquarters:</strong> Bandra Kurla Complex, Mumbai</div>
+            <div><strong>Consultancy Scope:</strong> Technical & Functional Solutions</div>
           </div>
-          <div style="display: flex; align-items: center; gap: 14px;">
+<!--           <div style="display: flex; align-items: center; gap: 14px;">
             <div style="width: 40px; height: 40px; background: rgba(197,160,89,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--accent-gold);">&rarr;</div>
-            <div><strong>Direct Inquiry:</strong> advisory@yourwazir.com</div>
-          </div>
+            <div><strong>Direct Inquiry:</strong> advisory@wazir.consulting</div>
+          </div> -->
         </div>
       </div>
 
       <div class="reveal">
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you. Your consultation request has been received. Our managing partner will reach out shortly.');">
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you. Your message has been sent successfully. We will be in touch shortly.');">
           <div class="form-group">
-            <label>FULL NAME</label>
-            <input type="text" class="form-control" placeholder="e.g. Eleanor Vance" required>
+            <label>YOUR NAME</label>
+            <input type="text" class="form-control" placeholder="e.g. John Doe" required>
           </div>
           <div class="form-group">
-            <label>CORP EMAIL</label>
-            <input type="email" class="form-control" placeholder="e.g. e.vance@enterprise.com" required>
+            <label>EMAIL ADDRESS</label>
+            <input type="email" class="form-control" placeholder="e.g. john@company.com" required>
           </div>
           <div class="form-group">
-            <label>ORGANIZATION / BOARD</label>
-            <input type="text" class="form-control" placeholder="e.g. Global Holdings Ltd">
-          </div>
-          <div class="form-group">
-            <label>PRIMARY ADVISORY INTEREST</label>
+            <label>ENGAGEMENT INTEREST</label>
             <select class="form-control">
-              <option>Corporate Strategy & Expansion</option>
-              <option>Operational Excellence & Cost Optimization</option>
-              <option>Digital & AI Transformation</option>
-              <option>M&A Due Diligence & Restructuring</option>
+              <option>Project-based Development</option>
+              <option>AI & Automation Consulting</option>
+              <option>Dedicated Technical Resource</option>
+              <option>Retainer & Maintenance</option>
+              <option>Operations & System Review</option>
             </select>
           </div>
-          <button type="submit" class="btn-gold" style="width: 100%; justify-content: center; padding: 16px;">Submit Consultation Request</button>
+          <div class="form-group">
+            <label>PROJECT DETAILS</label>
+            <textarea class="form-control" rows="4" placeholder="Briefly describe what you'd like to simplify or build..."></textarea>
+          </div>
+          <button type="submit" class="btn-gold" style="width: 100%; justify-content: center; padding: 16px;">Send Message</button>
         </form>
       </div>
     </div>
@@ -1092,50 +906,41 @@
               <rect x="20" y="80" width="60" height="4" rx="2" fill="#C5A059"/>
             </svg>
             <div class="logo-text">
-              <span class="logo-title" style="color: #fff;">YOUR WAZIR</span>
-              <span class="logo-subtitle">MANAGEMENT CONSULTING</span>
+              <span class="logo-title" style="color: #fff;">WAZIR</span>
+              <span class="logo-subtitle">Technical & Functional Consultancy</span>
             </div>
           </div>
-          <p style="color: var(--text-dim); font-size: 0.85rem; max-width: 280px;">Guiding C-suite leaders and enterprise boards through high-stakes market expansion and operational transformation.</p>
+          <p style="color: var(--text-dim); font-size: 0.85rem; max-width: 280px;">Technology • Automation • AI • Business Support. Helping businesses improve the way they work.</p>
         </div>
         <div class="footer-col">
-          <h5>Practice</h5>
+          <h5>Services</h5>
           <ul>
-            <li><a href="#services">Corporate Strategy</a></li>
-            <li><a href="#services">Operations</a></li>
-            <li><a href="#services">Digital & AI</a></li>
-            <li><a href="#services">Governance</a></li>
+            <li><a href="#services">Custom Apps & AI</a></li>
+            <li><a href="#services">Automation</a></li>
+            <li><a href="#services">Websites</a></li>
+            <li><a href="#services">Operations & Admin</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Firm</h5>
           <ul>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#about">Leadership</a></li>
-            <li><a href="#approach">Methodology</a></li>
-            <li><a href="#insights">Insights</a></li>
+            <li><a href="#approach">Our Approach</a></li>
+            <li><a href="#models">Engagement Options</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Global Hubs</h5>
+          <h5>Philosophy</h5>
           <ul>
-            <li><a href="#">Mumbai &bull; HQ</a></li>
-            <li><a href="#">London</a></li>
-            <li><a href="#">Singapore</a></li>
-            <li><a href="#">Dubai</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Legal</h5>
-          <ul>
-            <li><a href="#">Privacy Protocol</a></li>
-            <li><a href="#">Terms of Engagement</a></li>
-            <li><a href="#">Regulatory Disclosures</a></li>
+            <li><a href="#approach">Understand First</a></li>
+            <li><a href="#approach">Choose What Fits</a></li>
+            <li><a href="#approach">Build for Long-Term</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <div>&copy; 2026 Your Wazir Consulting Practice. All rights reserved.</div>
+        <div>&copy; 2026 Wazir Consultancy. All rights reserved.</div>
         <div>Because Strategy Beats Force.</div>
       </div>
     </div>
@@ -1143,7 +948,6 @@
 
   <!-- INTERACTIVE SCRIPTS -->
   <script>
-    // 1. Scroll Reveal Observer for Animations
     const revealElements = document.querySelectorAll('.reveal');
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -1156,15 +960,8 @@
 
     revealElements.forEach(el => revealOnScroll.observe(el));
 
-    // 2. Dynamic Active Navigation Link Highlighter based on Scroll Position
     const sections = document.querySelectorAll('section[id], div[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-
-    const navObserverOptions = {
-      root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0
-    };
 
     const navObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1178,42 +975,10 @@
           });
         }
       });
-    }, navObserverOptions);
+    }, { root: null, rootMargin: '-20% 0px -70% 0px', threshold: 0 });
 
-    sections.forEach(section => {
-      navObserver.observe(section);
-    });
+    sections.forEach(section => navObserver.observe(section));
 
-    // 3. Smooth Dynamic Parallax Scroll Engine (Mouse & Scroll offset)
-    window.addEventListener('scroll', () => {
-      const scrollY = window.pageYOffset;
-      
-      // Apply parallax translation to elements with data-speed attributes
-      document.querySelectorAll('[data-speed]').forEach(el => {
-        const speed = parseFloat(el.getAttribute('data-speed'));
-        el.style.transform = `translateY(${scrollY * speed}px)`;
-      });
-    });
-
-    // Mouse movement subtle card tilt parallax effect for hero image
-    const heroWrapper = document.querySelector('.hero-parallax');
-    const tiltImg = document.getElementById('hero-tilt-img');
-    
-    if (heroWrapper && tiltImg) {
-      heroWrapper.addEventListener('mousemove', (e) => {
-        const rect = heroWrapper.getBoundingClientRect();
-        const x = e.clientX - rect.left - (rect.width / 2);
-        const y = e.clientY - rect.top - (rect.height / 2);
-        
-        tiltImg.style.transform = `rotateY(${x * 0.005}deg) rotateX(${-y * 0.005}deg) scale(1.02)`;
-      });
-
-      heroWrapper.addEventListener('mouseleave', () => {
-        tiltImg.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
-      });
-    }
-
-    // 4. Animated Counter for Stats Bar
     const statsSection = document.querySelector('.stats-bar');
     let animated = false;
 
@@ -1225,34 +990,20 @@
         document.querySelectorAll('.stat-number').forEach(stat => {
           const target = parseFloat(stat.getAttribute('data-target'));
           let current = 0;
-          const increment = target / 50;
+          const increment = target / 40;
           const timer = setInterval(() => {
             current += increment;
             if (current >= target) {
-              stat.innerText = target % 1 !== 0 ? target.toFixed(1) : target;
+              stat.innerText = target;
               clearInterval(timer);
             } else {
-              stat.innerText = target % 1 !== 0 ? current.toFixed(1) : Math.floor(current);
+              stat.innerText = Math.floor(current);
             }
           }, 30);
         });
       }
     });
 
-    // 5. FAQ Accordion Toggle
-    document.querySelectorAll('.faq-question').forEach(question => {
-      question.addEventListener('click', () => {
-        const item = question.parentElement;
-        const isOpen = item.classList.contains('open');
-        
-        document.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('open'));
-        if (!isOpen) {
-          item.classList.add('open');
-        }
-      });
-    });
-
-    // 6. Mobile Menu Toggle Script
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileDropdown = document.getElementById('mobileDropdown');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
