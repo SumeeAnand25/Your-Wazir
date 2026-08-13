@@ -642,7 +642,7 @@
 
       <!-- Desktop Navigation Links -->
       <ul class="nav-links">
-        <li><a href="#home" class="nav-link active-link">Home</a></li>
+        <li><a href="#home" class="nav-link">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#approach" class="nav-link">Approach</a></li>
@@ -1116,7 +1116,7 @@
 
   <!-- INTERACTIVE SCRIPTS -->
   <script>
-    // 1. Scroll Reveal Observer
+    // 1. Scroll Reveal Observer for Animations
     const revealElements = document.querySelectorAll('.reveal');
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -1129,7 +1129,35 @@
 
     revealElements.forEach(el => revealOnScroll.observe(el));
 
-    // 2. Animated Counter for Stats Bar
+    // 2. Dynamic Active Navigation Link Highlighter based on Scroll Position
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const navObserverOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const currentId = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.remove('active-link');
+            if (link.getAttribute('href') === `#${currentId}`) {
+              link.classList.add('active-link');
+            }
+          });
+        }
+      });
+    }, navObserverOptions);
+
+    sections.forEach(section => {
+      navObserver.observe(section);
+    });
+
+    // 3. Animated Counter for Stats Bar
     const statsSection = document.querySelector('.stats-bar');
     let animated = false;
 
@@ -1155,7 +1183,7 @@
       }
     });
 
-    // 3. FAQ Accordion Toggle
+    // 4. FAQ Accordion Toggle
     document.querySelectorAll('.faq-question').forEach(question => {
       question.addEventListener('click', () => {
         const item = question.parentElement;
@@ -1168,7 +1196,7 @@
       });
     });
 
-    // 4. Mobile Menu Toggle Script
+    // 5. Mobile Menu Toggle Script
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileDropdown = document.getElementById('mobileDropdown');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
@@ -1177,7 +1205,6 @@
       mobileDropdown.classList.toggle('active');
     });
 
-    // Close mobile dropdown automatically when a link is clicked
     mobileNavLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileDropdown.classList.remove('active');
